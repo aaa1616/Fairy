@@ -9,11 +9,12 @@
 
 #include "ftmem.h"
 #include "ftmath.h"
+#include "ftaray.h"
 
 #define DEBUG_TRACE
 
 #ifdef DEBUG_TRACE
-#define Trace(fmt, ...)	fprintf("stdout", fmt, ##__VA_ARGS__)
+#define Trace(fmt, ...)	fprintf(stdout, fmt, ##__VA_ARGS__)
 #else
 #define	Trace(fmt, ...)
 #endif

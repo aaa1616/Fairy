@@ -1,17 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <malloc.h>
+#include "ftinclib.h"
 
 int main()
 {
-	//int a[4][3] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
-	int *a = malloc(sizeof(int)* 4 * 3);
-	
+	ftCreate2DArray(int, a);
+	ftInit2DArray(&a, 3, 4, sizeof(int));
 	for (int i = 0; i < 3; i++) {
-		fprintf(stdout, "a[%d] : %x, %x", i, a + i, *(a + i));
 		for (int j = 0; j < 4; j++) {
-			a[i][j] = i * 4 + j + 1;
+			a[i][j] = i * 3 + j;
 		}
 	}
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 4; j++) {
+			Trace("a[%d][%d] = %d\n", i, j, a[i][j]);
+		}
+	}
+
 	return 0;
 }

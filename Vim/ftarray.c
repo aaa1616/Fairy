@@ -1,9 +1,9 @@
 #include "ftaray.h"
 
-int ftInit2DArray(void ***parray, int row, int col, int size)
+int ftInit2DArray(void ***array, int row, int col, int size)
 {
 	void ** prow = NULL;
-	void * parray = NULL;
+	char * parray = NULL;
 	if ((prow = ftMalloc(row * size)) == NULL) {
 		return OUTOFMEM_STATUS;
 	}
@@ -18,7 +18,7 @@ int ftInit2DArray(void ***parray, int row, int col, int size)
 		prow[i] = (parray + i * col * size);
 	}
 
-	*parray = prow;
+	*array = prow;
 
 	return SUCCESS_STATUS;
 }
