@@ -4,8 +4,6 @@
 #define _FTINCLIB_H
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <malloc.h>
 
 #include "ftmem.h"
 #include "ftmath.h"

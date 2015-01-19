@@ -30,6 +30,9 @@
     <ClCompile Include="ftarray.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
+    <ClCompile Include="ftmem.c">
+      <Filter>Source Files\lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files\lib</Filter>
     </ClInclude>
     <ClInclude Include="ftmem.h">
+      <Filter>Header Files\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="ftlist.h">
       <Filter>Header Files\lib</Filter>
     </ClInclude>
   </ItemGroup>
