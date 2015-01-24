@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <malloc.h>
 #include <string.h>
+#include <assert.h>
+
+#include "ftinclib.h"
 
 void *xmalloc(size_t size, const char *file, size_t line);
 void *xcalloc(size_t num, size_t size, const char *file, size_t line);
