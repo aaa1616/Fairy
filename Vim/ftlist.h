@@ -1,6 +1,8 @@
 #ifndef  _FTLIST_H
 #define _FTLIST_H
 
+#include "ftdef.h"
+
 #define LIST_POISON1 ((void *) 0x00100100)
 #define LIST_POISON2 ((void *) 0x00200200)
 
@@ -8,10 +10,9 @@
 typedef struct _LISTHEAD {
 	struct _LISTHEAD *next, *prev;
 }LISTHEAD;
-
 #define ftListInit(name) {&(name), &(name)}
 #define ftListHead(name) LISTHEAD name = ftListInit(name)
-static inline void __init_list_head(LISTHEAD *list)
+static __inline void __init_list_head(LISTHEAD *list)
 {
 	list->next = list;
 	list->prev = list;
@@ -22,7 +23,7 @@ static inline void __init_list_head(LISTHEAD *list)
  * This is only for internal list manipulation where we know
  * the prev/next entries already!
  */
-static inline void __list_add(LISTHEAD *node, LISTHEAD *prev, LISTHEAD *next)
+static __inline void __list_add(LISTHEAD *node, LISTHEAD *prev, LISTHEAD *next)
 {
 	prev->next = node;
 	node->prev = prev;
@@ -36,12 +37,12 @@ static inline void __list_add(LISTHEAD *node, LISTHEAD *prev, LISTHEAD *next)
  * This is only for internal list manipulation where we know
  * the prev/next entries already!
  */
-static inline void __list_del(LISTHEAD *prev, LISTHEAD *next)
+static __inline void __list_del(LISTHEAD *prev, LISTHEAD *next)
 {
 	next->prev = prev;
 	prev->next = next;
 }
-static inline void __list_del_entry(LISTHEAD *node)
+static __inline void __list_del_entry(LISTHEAD *node)
 {
 	__list_del(node->prev, node->next);
 	node->prev = (LISTHEAD *)LIST_POISON1;
@@ -55,7 +56,7 @@ static inline void __list_del_entry(LISTHEAD *node)
  * Insert a new entry after the specified head.
  * This is good for implementing stacks.
  */
-static inline void ftListAdd(LISTHEAD *node, LISTHEAD *head)
+static __inline void ftListAdd(LISTHEAD *node, LISTHEAD *head)
 {
 	__list_add(node, head, head->next);
 }
@@ -67,11 +68,11 @@ static inline void ftListAdd(LISTHEAD *node, LISTHEAD *head)
  * Insert a new entry before the specified head.
  * This is useful for implementing queues.
  */
-static inline void ftListAddTail(LISTHEAD *node, LISTHEAD *head)
+static __inline void ftListAddTail(LISTHEAD *node, LISTHEAD *head)
 {
 	__list_add(node, head->prev, head);
 }
-static inline void ftListDelInit(LISTHEAD *node)
+static __inline void ftListDelInit(LISTHEAD *node)
 {
 	__list_del_entry(node);
 	__init_list_head(node);
@@ -83,24 +84,24 @@ static inline void ftListDelInit(LISTHEAD *node)
  *
  * If @old was empty, it will be overwritten.
  */
-static inline void __list_replace(LISTHEAD *oldnode, LISTHEAD *newnode)
+static __inline void __list_replace(LISTHEAD *oldnode, LISTHEAD *newnode)
 {
 	newnode->prev = oldnode->prev;
 	newnode->prev->next = newnode;
 	newnode->next = oldnode->next;
 	newnode->next->prev = newnode;
 }
-static inline void ftListReplaceInit(LISTHEAD *oldnode, LISTHEAD *newnode)
+static __inline void ftListReplaceInit(LISTHEAD *oldnode, LISTHEAD *newnode)
 {
 	__list_replace(oldnode, newnode);
 	__init_list_head(oldnode);
 }
-static inline void ftListMove(LISTHEAD *node, LISTHEAD *head)
+static __inline void ftListMove(LISTHEAD *node, LISTHEAD *head)
 {
 	__list_del_entry(node);
 	ftListAdd(node, head);
 }
-static inline void ftListMoveTail(LISTHEAD *node, LISTHEAD *head)
+static __inline void ftListMoveTail(LISTHEAD *node, LISTHEAD *head)
 {
 	__list_del_entry(node);
 	ftListAddTail(node, head);
@@ -110,25 +111,25 @@ static inline void ftListMoveTail(LISTHEAD *node, LISTHEAD *head)
  * @list: the entry to test
  * @head: the head of the list
  */
-static inline int ftListIsLast(const LISTHEAD *list, const LISTHEAD *head)
+static __inline int ftListIsLast(const LISTHEAD *list, const LISTHEAD *head)
 {
 	return list->next == head;
-}
-/**
- * list_is_singular - tests whether a list has just one entry.
- * @head: the list to test.
- */
-static inline int ftListIsSingular(const LISTHEAD *head)
-{
-	return !ftListEmpty(head) && (head->next == head->prev);
 }
 /**
  * list_empty - tests whether a list is empty
  * @head: the list to test.
  */
-static inline int ftListEmpty(const LISTHEAD *head)
+static __inline int ftListEmpty(const LISTHEAD *head)
 {
 	return head->next == head;
+}
+/**
+ * list_is_singular - tests whether a list has just one entry.
+ * @head: the list to test.
+ */
+static __inline int ftListIsSingular(const LISTHEAD *head)
+{
+	return !ftListEmpty(head) && (head->next == head->prev);
 }
 /**
  * list_entry - get the struct for this entry
@@ -154,7 +155,7 @@ static inline int ftListEmpty(const LISTHEAD *head)
  *
  * Note, that list is expected to be not empty.
  */
-#define ftListLastEntry(ptr, type, member) list_entry((ptr)->prev, type, member)
+#define ftListLastEntry(ptr, type, member) ftListEntry((ptr)->prev, type, member)
 /**
  * list_first_entry_or_null - get the first element from a list
  * @ptr:        the list head to take the element from.
@@ -170,15 +171,15 @@ static inline int ftListEmpty(const LISTHEAD *head)
  * @pos:        the type * to cursor
  * @member:     the name of the list_struct within the struct.
  */
-#define ftListNextEntry(pos, member) \
-	ftListEntry((pos)->member.next, __typeof(*(pos), member)
+#define ftListNextEntry(pos, type, member) \
+	ftListEntry((pos)->member.next, type, member)
 /**
  * list_prev_entry - get the prev element in list
  * @pos:        the type * to cursor
  * @member:     the name of the list_struct within the struct.
  */
-#define ftListPrevEntry(pos, member) \
-	ftListEntry((pos)->member.prev, __typeof(*(pos)), member)
+#define ftListPrevEntry(pos, type, member) \
+	ftListEntry((pos)->member.prev, type, member)
 /**
  * list_for_each        -       iterate over a list
  * @pos:        the &struct list_head to use as a loop cursor.
@@ -215,16 +216,16 @@ static inline int ftListEmpty(const LISTHEAD *head)
  * @head:       the head for your list.
  * @member:     the name of the list_struct within the struct.
  */
-#define ftListForEachEntry(pos, head, member) \
-	for (pos = ftListFristEntry(head, __typeof(*pos), member); &pos->member != (head); pos = ftListNextEntry(pos, member))
+#define ftListForEachEntry(pos, type, head, member) \
+	for (pos = ftListFirstEntry(head, type, member); &pos->member != (head); pos = ftListNextEntry(pos, type, member))
 /**
  * list_for_each_entry_reverse - iterate backwards over list of given type.
  * @pos:        the type * to use as a loop cursor.
  * @head:       the head for your list.
  * @member:     the name of the list_struct within the struct.
  */
-#define ftListForEachEntryReverse(pos, head, member) \
-	for (pos = ftListLastEntry(head, __typeof(*pos), member); &pos->member != (head); pos = ftListLastEntry(pos, member))
+#define ftListForEachEntryReverse(pos, type, head, member) \
+	for (pos = ftListLastEntry(head, type, member); &pos->member != (head); pos = ftListLastEntry(pos, type, member))
 /**
  * list_for_each_entry_safe - iterate over list of given type safe against removal of list entry
  * @pos:        the type * to use as a loop cursor.
@@ -232,8 +233,8 @@ static inline int ftListEmpty(const LISTHEAD *head)
  * @head:       the head for your list.
  * @member:     the name of the list_struct within the struct.
  */
-#define ftListForEachEntrySafe(pos, head, member) \
-	for (pos = ftListFristEntry(head, __typeof(*pos), member), n = ftListNextEntry(pos, member); &pos->member != (head); pos = n, n = ftListNextEntry(pos, member))
+#define ftListForEachEntrySafe(pos, type, head, member) \
+	for (pos = ftListFirstEntry(head, type, member), n = ftListNextEntry(pos, type, member); &pos->member != (head); pos = n, n = ftListNextEntry(pos, type, member))
 /**
  * list_for_each_entry_safe_reverse - iterate backwards over list safe against removal
  * @pos:        the type * to use as a loop cursor.
@@ -244,8 +245,8 @@ static inline int ftListEmpty(const LISTHEAD *head)
  * Iterate backwards over list of given type, safe against removal
  * of list entry.
  */
-#define ftListForEachEntryReverseSafe(pos, head, member) \
-	for (pos = ftListLastEntry(head, __typeof(*pos), member), n = ftListPrevEntry(pos, member); &pos->member != (head); pos = n, n = ftListLastEntry(pos, member))
+#define ftListForEachEntryReverseSafe(pos, type, head, member) \
+	for (pos = ftListLastEntry(head, type, member), n = ftListPrevEntry(pos, type, member); &pos->member != (head); pos = n, n = ftListLastEntry(pos, type, member))
 
 
 #endif

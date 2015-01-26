@@ -147,6 +147,7 @@
     <ClInclude Include="ftaray.h" />
     <ClInclude Include="ftinclib.h" />
     <ClInclude Include="ftlist.h" />
+    <ClInclude Include="ftdef.h" />
     <ClInclude Include="ftmath.h" />
     <ClInclude Include="ftmem.h" />
   </ItemGroup>

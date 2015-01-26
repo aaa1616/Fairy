@@ -2,7 +2,8 @@
 
 int main(void)
 {
-	Trace("%d\n", sizeof(size_t));
+	void *memblock = ftMalloc(100);
+	ftFree(memblock);
+	ftReportMem();
 	system("pause");
-	return 0;
 }

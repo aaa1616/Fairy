@@ -31,7 +31,7 @@ typedef struct _MEMINFO {
 
 typedef struct _MEMLEAK {
 	MEMINFO meminfo;
-	LISTHEAD node
+	LISTHEAD node;
 }MEMLEAK;
 
 typedef struct _MEMLEAK_CTX{
@@ -48,6 +48,7 @@ static MEMLEAK_CTX leakCtx = { 0 };
 
 static void __add(MEMINFO allocInfo);
 static void __add_mem_info(void *memblock, size_t size, const char *file, size_t line);
+static void __del_mem_info(void *memblock);
 
 static void __add(MEMINFO allocInfo) {
 	MEMLEAK *memleak;
@@ -79,6 +80,21 @@ static void __add_mem_info(void *memblock, size_t size, const char *file, size_t
 	__add(allocInfo);
 	MUTEX_UNLOCK(leakCtx.gCs);
 }
+static void __del_mem_info(void *memblock)
+{
+	MUTEX_LOCK(leakCtx.gCs);
+	MEMLEAK *pos;
+	ftListForEachEntry(pos, MEMLEAK, &leakHead, node) {
+		if (memblock == pos->meminfo.address) {
+			ftListDelInit(&pos->node);
+			free(pos);
+			break;
+		}
+	}
+	leakCtx.num--;
+	assert(leakCtx.num >= 0);
+	MUTEX_UNLOCK(leakCtx.gCs);
+}
 
 void *xmalloc(size_t size, const char *file, size_t line)
 {
@@ -100,11 +116,81 @@ char *xstrdup(const char *strSource, const char * file, size_t line)
 {
 	char *desSource = strdup(strSource);
 	if (desSource != NULL) {
-
+		__add_mem_info(desSource, strlen(desSource) + 1, file, line);
 	}
 	return desSource;
 }
 void xfree(void *memblock)
 {
+	__del_mem_info(memblock);
 	free(memblock);
+}
+int ld_hex_printout(char *out_buf,const char *buf, size_t len,int wide)
+{
+	int i, j;
+	int ret     = 0;
+	int nLines  = 0;
+	const char hex_char[] = "0123456789ABCDEF";
+	const unsigned char *ptr = buf;
+	char *dst  = out_buf;
+	nLines = (len + 0x0f) >> 4;
+	for (i = 0; i < nLines; i++)
+	{
+		int nbytes = ((int)len < wide) ? len : wide;
+		*dst++ = ' ';
+		*dst++ = ' ';
+		*dst++ = ' ';
+		*dst++ = ' ';
+		for (j = 0; j < nbytes; j++)
+		{
+			unsigned char ival = *ptr++;
+			*dst++ = hex_char[(ival >> 4) & 0x0F];
+			*dst++ = hex_char[ival & 0x0F];
+			*dst++ = ' ';
+		}
+		for (j = 0; j < wide - nbytes + 1; j++)
+		{
+			*dst++ = ' ';
+			*dst++ = ' ';
+			*dst++ = ' ';
+		}
+		ptr -= nbytes;
+		for (j = 0; j < nbytes; j++)
+		{
+			if ((*ptr >= 0x20) && (*ptr <= 0x7e))
+			{
+				*dst = *ptr;
+			}
+			else
+			{
+				*dst = '.';
+			}
+			ptr++;
+			dst++;
+		}
+		*dst++ = '\n';
+		len -= nbytes;
+	}
+	*dst++ = 0;
+	return ret;
+}
+void ftReportMem(void)
+{
+	fprintf(stdout, "Memory Leak Summary\n");
+	fprintf(stdout, "==============================================================================\n");
+	fprintf(stdout, "Leak total : %d bytes, max used : %d bytes, once max : %d bytes\n", leakCtx.total, leakCtx.usedMax, leakCtx.onceMax);
+	fprintf(stdout, "------------------------------------------------------------------------------\n");
+	MEMLEAK *pos;
+	char info[1024];
+	size_t printSize;
+	ftListForEachEntry(pos, MEMLEAK, &leakHead, node) {
+		fprintf(stdout, "Address : 0x%08x, size : %d bytes\n", pos->meminfo.address, pos->meminfo.size);
+		fprintf(stdout, "File : %s, line : %d\n", pos->meminfo.file, pos->meminfo.line);
+		printSize = pos->meminfo.size > 64 ? 64 : pos->meminfo.size;
+		//ld_hex_printout(info, pos->meminfo.address, printSize, 16);
+		//fprintf(stdout, "%s\n", info);
+		fprintf(stdout, "------------------------------------------------------------------------------\n");
+	}
+	fprintf(stdout, "==============================================================================\n");
+	MUTEX_DESTROY(leakCtx.gCs);
 }

@@ -18,4 +18,6 @@ void xfree(void *memblock);
 #define ftStrdup(strSource) xstrdup(strSource, __FILE__, __LINE__)
 #define ftFree(memblock) xfree(memblock)
 
+void ftReportMem(void);
+
 #endif
