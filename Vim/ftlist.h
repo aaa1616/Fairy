@@ -6,10 +6,16 @@
 #define LIST_POISON1 ((void *) 0x00100100)
 #define LIST_POISON2 ((void *) 0x00200200)
 
-
 typedef struct _LISTHEAD {
 	struct _LISTHEAD *next, *prev;
 }LISTHEAD;
+typedef struct _HLISTHEAD {
+	struct _HLISTHEAD *first;
+}HLISTHEAD;
+typedef struct _HLISTNODE {
+	struct _HLISTNODE *next, **pprev;
+}HLISTNODE;
+
 #define ftListInit(name) {&(name), &(name)}
 #define ftListHead(name) LISTHEAD name = ftListInit(name)
 static __inline void __init_list_head(LISTHEAD *list)
@@ -248,5 +254,89 @@ static __inline int ftListIsSingular(const LISTHEAD *head)
 #define ftListForEachEntryReverseSafe(pos, type, head, member) \
 	for (pos = ftListLastEntry(head, type, member), n = ftListPrevEntry(pos, type, member); &pos->member != (head); pos = n, n = ftListLastEntry(pos, type, member))
 
-
+/*
+ * Double linked lists with a single pointer list head.
+ * Mostly useful for hash tables where the two pointer list head is
+ * too wasteful.
+ * You lose the ability to access the tail in O(1).
+ */
+#define ftHListInit	{ .first = NULL}
+#define ftHListHead(name) HLISTHEAD name = ftHListInit
+static __inline void __init_hlist_head(HLISTHEAD *list)
+{
+	list->first = NULL;
+}
+static __inline void __init_hlist_node(HLISTNODE *node)
+{
+	node->next = NULL;
+	node->pprev = NULL;
+}
+static __inline int ftHListUnHashed(HLISTNODE *node)
+{
+	return !node->pprev;
+}
+static __inline int ftHListEmpty(HLISTHEAD *head)
+{
+	return !head->first;
+}
+static __inline void __hlist_del(HLISTNODE *node)
+{
+	*(node->pprev) = node->next;
+	if (node->next) {
+		node->next->pprev = node->pprev;
+	}
+}
+static __inline void __hlist_del_entry(HLISTNODE *node)
+{
+	__hlist_del(node);
+	node->next = LIST_POISON1;
+	node->pprev = LIST_POISON2;
+}
+static _inline void ftHListDelInit(HLISTNODE *node)
+{
+	if (!ftHListUnHashed(node)) {
+		__hlist_del_entry(node);
+		__init_hlist_node(node);
+	}
+}
+static __inline void ftHListAddHead(HLISTHEAD *head, HLISTNODE *node)
+{
+	HLISTNODE *first = head->first;
+	node->next = first;
+	if (first) {
+		first->pprev = &node->next;
+	}
+	head->first = node;
+	node->pprev = &head->first;
+}
+/* next must be != NULL */
+static __inline void ftHListAddBefore(HLISTNODE *node, HLISTNODE *next)
+{
+	node->pprev = next->pprev;
+	node->next = next;
+	*node->pprev = node;
+	next->pprev = &node->next;
+}
+static __inline void ftHListAddBehind(HLISTNODE *node, HLISTNODE *prev)
+{
+	node->next = prev->next;
+	prev->next = node;
+	node->pprev = &prev->next;
+	if (node->next) {
+		node->next->pprev = &node->next;
+	}
+}
+#define ftHListEntry(ptr, type, member) ftListEntry(ptr, type, member)
+#define ftHListEntrySafe(ptr, type, member) \
+	(ptr ? ftHListEntry(ptr, type, member) : NULL)
+#define ftHListForEach(pos, head) \
+	for (pos = (head)->first ; pos ; pos = pos->next)
+#define ftHListForEachSafe(pos, n, head) \
+	for (pos = (head)->first ; pos && ({n = pos->next; 1;}) ; pos = n)
+#define ftHListForEachEntry(pos, type, head, member) \
+	for (pos = ftHListEntrySafe((head)->first, type, member) ; pos ; pos = ftHListEntrySafe(pos->member.next, type, member))
+#define ftHListForEachEntrySafe(pos, type, n, head, member) \
+	for (pos = ftHListEntrySafe((head)->first, type, member) ; \
+		pos && ({n = pos->member.next ; 1;}) ; \
+		pos = ftHListEntrySafe(n, type, member))
 #endif

@@ -35,7 +35,7 @@ typedef struct _MEMLEAK {
 }MEMLEAK;
 
 typedef struct _MEMLEAK_CTX{
-	size_t num;
+	int num;
 	size_t onceMax;
 	size_t total;
 	size_t usedMax;
