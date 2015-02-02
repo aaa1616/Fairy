@@ -262,10 +262,7 @@ static __inline int ftListIsSingular(const LISTHEAD *head)
  */
 #define ftHListInit	{ .first = NULL}
 #define ftHListHead(name) HLISTHEAD name = ftHListInit
-static __inline void __init_hlist_head(HLISTHEAD *list)
-{
-	list->first = NULL;
-}
+#define ftHListInitHead(ptr) ((ptr)->first = NULL)
 static __inline void __init_hlist_node(HLISTNODE *node)
 {
 	node->next = NULL;
@@ -335,7 +332,7 @@ static __inline void ftHListAddBehind(HLISTNODE *node, HLISTNODE *prev)
 	for (pos = (head)->first ; pos && ({n = pos->next; 1;}) ; pos = n)
 #define ftHListForEachEntry(pos, type, head, member) \
 	for (pos = ftHListEntrySafe((head)->first, type, member) ; pos ; pos = ftHListEntrySafe(pos->member.next, type, member))
-#define ftHListForEachEntrySafe(pos, type, n, head, member) \
+#define ftHListForEachEntrySafe(pos, n, type, head, member) \
 	for (pos = ftHListEntrySafe((head)->first, type, member) ; \
 		pos && ({n = pos->member.next ; 1;}) ; \
 		pos = ftHListEntrySafe(n, type, member))

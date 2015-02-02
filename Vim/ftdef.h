@@ -23,5 +23,6 @@
 #define ftContainerOf(ptr, type, member) \
 	((type *)((char *)ptr - ftOffsetOf(type, member)))
 #define ftOffsetOf(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
+#define ftArraySize(arr) (sizeof(arr) / sizeof((arr)[0]))
 
 #endif

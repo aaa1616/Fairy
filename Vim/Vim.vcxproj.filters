@@ -53,5 +53,8 @@
     <ClInclude Include="ftdef.h">
       <Filter>Header Files\lib</Filter>
     </ClInclude>
+    <ClInclude Include="fthashtable.h">
+      <Filter>Header Files\lib</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -150,6 +150,7 @@
     <ClInclude Include="ftdef.h" />
     <ClInclude Include="ftmath.h" />
     <ClInclude Include="ftmem.h" />
+    <ClInclude Include="fthashtable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
