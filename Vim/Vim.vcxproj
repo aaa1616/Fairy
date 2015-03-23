@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="buystock.c" />
     <ClCompile Include="ftarray.c" />
     <ClCompile Include="ftmem.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="buystock.h" />
     <ClInclude Include="ftaray.h" />
     <ClInclude Include="ftinclib.h" />
     <ClInclude Include="ftlist.h" />

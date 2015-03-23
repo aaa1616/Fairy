@@ -33,6 +33,9 @@
     <ClCompile Include="ftmem.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
+    <ClCompile Include="buystock.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="fthashtable.h">
       <Filter>Header Files\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="buystock.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
