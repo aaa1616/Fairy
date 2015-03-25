@@ -36,6 +36,9 @@
     <ClCompile Include="buystock.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="aidl.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
@@ -62,5 +65,19 @@
     <ClInclude Include="buystock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="aidl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ILocationManager.aidl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="IFusedGeofenceHardware.aidl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="INetworkManagementService.aidl">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="aidl.c" />
     <ClCompile Include="buystock.c" />
     <ClCompile Include="ftarray.c" />
     <ClCompile Include="ftmem.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aidl.h" />
     <ClInclude Include="buystock.h" />
     <ClInclude Include="ftaray.h" />
     <ClInclude Include="ftinclib.h" />
@@ -153,6 +155,11 @@
     <ClInclude Include="ftmath.h" />
     <ClInclude Include="ftmem.h" />
     <ClInclude Include="fthashtable.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IFusedGeofenceHardware.aidl" />
+    <None Include="ILocationManager.aidl" />
+    <None Include="INetworkManagementService.aidl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

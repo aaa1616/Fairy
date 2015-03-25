@@ -4,6 +4,7 @@
 #define _FTINCLIB_H
 
 #include <stdio.h>
+#include <ctype.h>
 
 #include "ftdef.h"
 #include "ftmath.h"

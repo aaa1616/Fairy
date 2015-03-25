@@ -1,6 +1,6 @@
 #include "ftinclib.h"
 #include <time.h>
-#include "buystock.h"
+#include "aidl.h"
 
 struct Test {
 	int a;
@@ -20,7 +20,9 @@ int main(void)
 	//}
 	//b = clock();
 	//ftTrace("val : %u, time : %lf\n", n, (double)(b - a) / CLOCKS_PER_SEC);
-	int prices[] = { 13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7 };
-	maxProfit(prices, ftArraySize(prices));
+	FILE *file = fopen("INetworkManagementService.aidl", "r");
+	if (file != NULL) {
+		parseAidl(file);
+	}
 	system("pause");
 }
