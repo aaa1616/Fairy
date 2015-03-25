@@ -39,6 +39,9 @@
     <ClCompile Include="aidl.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="repeat_dna.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
@@ -68,16 +71,8 @@
     <ClInclude Include="aidl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ILocationManager.aidl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="IFusedGeofenceHardware.aidl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="INetworkManagementService.aidl">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClInclude Include="repeat_dna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
