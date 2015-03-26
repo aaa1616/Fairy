@@ -1,8 +1,7 @@
 #include "ftinclib.h"
 #include <time.h>
 #include <io.h>
-#include "aidl.h"
-#include "repeat_dna.h"
+#include "largetnum.h"
 
 struct Test {
 	int a;
@@ -42,9 +41,7 @@ int main(void)
 	//}
 	//printf("Total:%d\n", total);
 	//_findclose(handle);
-	int out;
-	char * input = "AAAAAAAAAAA";
-	//findRepeatedDnaSequences(input, &out);
-	findRepeatedDnaSequencesTT(input, &out);
+	char str[] = "a";
+	char *s = longestPalindrome(str);
 	system("pause");
 }
