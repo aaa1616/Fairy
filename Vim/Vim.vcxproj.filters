@@ -42,6 +42,12 @@
     <ClCompile Include="rws.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="revws.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="largestnum.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
@@ -73,6 +79,15 @@
     </ClInclude>
     <ClInclude Include="rws.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="revws.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="largetnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uthash.h">
+      <Filter>Header Files\lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
