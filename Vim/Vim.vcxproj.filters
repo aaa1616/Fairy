@@ -36,10 +36,10 @@
     <ClCompile Include="buystock.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="aidl.c">
+    <ClCompile Include="repeat_dnnn.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="repeat_dna.c">
+    <ClCompile Include="rws.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,10 +68,10 @@
     <ClInclude Include="buystock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aidl.h">
+    <ClInclude Include="repeat_dnnn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="repeat_dna.h">
+    <ClInclude Include="rws.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
