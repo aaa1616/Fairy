@@ -1,5 +1,5 @@
 #include "rws.h"
-void swap(char *s, int b, int e) {
+static void swap(char *s, int b, int e) {
 	while (b < e) {
 		s[b] ^= s[e];
 		s[e] ^= s[b];

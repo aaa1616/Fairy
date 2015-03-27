@@ -36,16 +36,13 @@
     <ClCompile Include="buystock.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="repeat_dnnn.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
     <ClCompile Include="rws.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="revws.c">
+    <ClCompile Include="largestnum.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="largestnum.c">
+    <ClCompile Include="repeat_dna.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,13 +71,7 @@
     <ClInclude Include="buystock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="repeat_dnnn.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="rws.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="revws.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="largetnum.h">
@@ -88,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="uthash.h">
       <Filter>Header Files\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="repeat_dna.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

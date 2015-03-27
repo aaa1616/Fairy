@@ -144,9 +144,7 @@
     <ClCompile Include="ftmem.c" />
     <ClCompile Include="largestnum.c" />
     <ClCompile Include="repeat_dna.c" />
-    <ClCompile Include="repeat_dnnn.c" />
     <ClCompile Include="rws.c" />
-    <ClCompile Include="revws.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
@@ -160,9 +158,7 @@
     <ClInclude Include="fthashtable.h" />
     <ClInclude Include="largetnum.h" />
     <ClInclude Include="repeat_dna.h" />
-    <ClInclude Include="revws.h" />
     <ClInclude Include="uthash.h" />
-    <ClInclude Include="repeat_dnnn.h" />
     <ClInclude Include="rws.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
