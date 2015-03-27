@@ -86,5 +86,8 @@
     <ClInclude Include="largetnum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="uthash.h">
+      <Filter>Header Files\lib</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

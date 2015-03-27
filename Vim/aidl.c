@@ -1,6 +1,21 @@
 #include "aidl.h"
 
-int parseAidl(FILE *file)
+void hash_add_filename(char *name, int id)
+{
+	struct my_struct *s;
+	HASH_FIND_STR(fnHash, name, s);
+	if (s == NULL) {
+		s = (struct my_struct *)malloc(sizeof(struct my_struct));
+		strcpy(s->key, name);
+		s->id = id;
+		HASH_ADD_STR(fnHash, key, s);
+	}
+	else {
+		printf("Error : %s\n", name);
+	}
+}
+
+int parseAidl(FILE *file, char *filename, int id, char ***aidl_table)
 {
 	char c;
 	char token[100] = { 0 };
@@ -8,7 +23,7 @@ int parseAidl(FILE *file)
 	char descriptor[100];
 	int isComment = 0, isLineComment = 0;
 	int ispackage = 0, isInterface = 0, isRetType = 0, isFunc = 0, isType = 1, isParam = 0;
-	int total = 0;
+	int total = 1;
 	while ((c = getc(file)) != EOF) {
 		if ((c == ' ' || c == '\t') && !isRetType && !isParam) {
 			continue;
@@ -104,6 +119,7 @@ int parseAidl(FILE *file)
 				isInterface = 2;
 				strcat(descriptor, token);
 				//printf("descriptor:%s\n", descriptor);
+				hash_add_filename(descriptor, id);
 				token[0] = 0;
 				continue;
 			}
@@ -128,6 +144,8 @@ int parseAidl(FILE *file)
 			if (c == '(') {
 				isFunc = 2;
 				//printf("Func:%s(",token);
+				strcat(aidl_table[id][total], token);
+				strcat(aidl_table[id][total], "(");
 				token[0] = 0;
 				continue;
 			}
@@ -147,16 +165,22 @@ int parseAidl(FILE *file)
 						isType = 0;
 						isParam = 0;
 						//printf("%s ", token);
+						strcat(aidl_table[id][total], token);
+						strcat(aidl_table[id][total], " ");
 					}
 					else {
 						isType = 1;
 						isParam = 0;
 						//printf("%s,", token);
+						strcat(aidl_table[id][total], token);
+						strcat(aidl_table[id][total], ",");
 					}
 					token[0] = 0;
 				}
 			}
 			else {
+				strcat(aidl_table[id][total], token);
+				strcat(aidl_table[id][total], ");");
 				//printf("%s", token);
 				//printf(");\n");
 				isFunc = 0;
