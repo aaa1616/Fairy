@@ -53,30 +53,31 @@ int hashFun(int *key, int keylen, int num_bkts) {
 		HASH_JEN_MIX(_hj_i, _hj_j, hashv);                                             \
 		return hashv & (num_bkts - 1);
 }
+char bit[1024 * 1024];
 char **findRepeatedDnaSequences(char *input, int *outputSize) {
-	int bit[1024] = { 0 };
 	char code[128] = { 0 };
-	char *str;
-	char **ret;
+	//char *str;
+	//char **ret;
 	code['A'] = 0x00;
 	code['C'] = 0x01;
 	code['T'] = 0x02;
 	code['G'] = 0x03;
-	int i = 1;
+	int i = 0;
 	unsigned int val = 0;
 	*outputSize = 0;
+	memset(bit, 0, 1024 * 1024 * sizeof(char));
 	while (input[i] != 0) {
 		val = (val << 2 | code[input[i]]) & 0x0fffff;
 		i++;
 		if (i < 10) {
 			continue;
 		}
-		int hashv = hashFun(&val, sizeof(int), 1024);
-		if (bit[hashv] == 0) {
-			bit[hashv] = 1;
+		//int hashv = hashFun(&val, sizeof(int), 1024);
+		if (bit[val] == 0) {
+			bit[val] = 1;
 		}
-		else if (bit[hashv] == 1){
-			bit[hashv] = 2;
+		else if (bit[val] == 1){
+			bit[val] = 2;
 			//strncpy(temp, input + i - 10, 10);
 			//temp[10] = 0;
 			//printf("First : %s\n", temp);
@@ -86,25 +87,30 @@ char **findRepeatedDnaSequences(char *input, int *outputSize) {
 	if (*outputSize <= 0) {
 		return NULL;
 	}
-	ret = malloc(*outputSize * sizeof(char *));
-	str = malloc(*outputSize * 10 * sizeof(char));
-	i = 1;
+	char **ret = malloc(*outputSize * sizeof(char *));
+	char *str = malloc(*outputSize * 11 * sizeof(char));
+	//char *ret[10];
+	//char str[100];
+	i = 0;
 	int count = 0;
-	memset(bit, 0, 1024 * sizeof(int));
+	val = 0;
+	memset(bit, 0, 1024 * 1024 * sizeof(char));
 	while (input[i] != 0) {
-		val = (val - (code[input[i - 1]] << (2 * 9))) << 2 | code[input[i]];
+		val = (val << 2 | code[input[i]]) & 0x0fffff;
+		//val = (val - (code[input[i - 1]] << (2 * 9))) << 2 | code[input[i]];
 		i++;
 		if (i < 10) {
 			continue;
 		}
-		int hashv = hashFun(&val, sizeof(int), 1024);
-		if (bit[hashv] == 0) {
-			bit[hashv] = 1;
+		//int hashv = hashFun(&val, sizeof(int), 1024);
+		if (bit[val] == 0) {
+			bit[val] = 1;
 		}
-		else if (bit[hashv] == 1){
-			bit[hashv] = 2;
+		else if (bit[val] == 1){
+			bit[val] = 2;
 			memcpy(str + 10 * count, input + i - 10, 10);
-			ret[count] = str + 10 * count;
+			str[10 * (count + 1)] = 0;
+			ret[count] = str + 11 * count;
 			//strncp/*y(temp, input + i - 10, 10);
 			//temp[10] = 0;
 			//printf(*/"Second : %s\n", temp);
@@ -113,8 +119,6 @@ char **findRepeatedDnaSequences(char *input, int *outputSize) {
 	}
 	return ret;
 }
-
-char bit[1024 * 1024] = { 0 };
 
 char **findRepeatedDnaSequencesTT(char *input, int *outputSize) {
 	char temp[11];
@@ -168,4 +172,31 @@ char **findRepeatedDnaSequencesTT(char *input, int *outputSize) {
 		}
 	}
 	return ret;
+}
+
+char *intToRoman(int num) {
+	char *roman[][10] = {
+		{ "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },
+		{ "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" },
+		{ "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },
+		{ "", "M", "MM", "MMM" }
+	};
+
+	char *ret = malloc(20 * sizeof(char));
+	char *temp = malloc(20 * sizeof(char));
+	memset(ret, 0, 10 * sizeof(char));
+	int digit = 0;
+	while (num != 0) {
+		memcpy(temp, ret, strlen(ret) + 1);
+		ret[0] = 0;
+		int remain = num % 10;
+		strcat(ret, roman[digit][remain]);
+		strcat(ret, temp);
+		//ret = roman[digit][remain] + ret;
+		digit++;
+		num /= 10;
+	}
+	free(temp);
+	return ret;
+
 }
