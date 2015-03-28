@@ -2,7 +2,7 @@
 
 #define NUM_SIZE 64
 
-void swap(int *a, int *b)
+static void swap(int *a, int *b)
 {
 	if (*a != *b) {
 		*a ^= *b;
@@ -227,4 +227,29 @@ char *longestPalindrome(char *s) {
 	free(P);
 	return pld;
 
+}
+char *longestCommonPrefix(char *strs[], int n) {
+	if (n == 0) {
+		return NULL;
+	}
+	int len = strlen(strs[0]);
+	if (len == 0) {
+		return "";
+	}
+	int i;
+	for (i = 0; i < len; i++) {
+		char c = strs[0][i];
+		for (int j = 1; j < n; j++) {
+			if (strs[j][i] == c) {
+				continue;
+			}
+			else {
+				char *ret = malloc((i + 1) * sizeof(char));
+				memcpy(ret, strs[0], i);
+				ret[i] = 0;
+				return ret;
+			}
+		}
+	}
+	return strs[0];
 }

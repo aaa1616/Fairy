@@ -1,7 +1,7 @@
 #include "ftinclib.h"
 #include <time.h>
 #include <io.h>
-#include "repeat_dna.h"
+#include "largetnum.h"
 
 struct Test {
 	int a;
@@ -52,9 +52,7 @@ int main(void)
 	//HASH_FIND_STR(fnHash, des, s);
 
 	//printf("%s\n", aidl_table[s->id][1]);
-	char input[] = "CCGGCCGGCCGGCC";
-	int out;
-	char *ret = intToRoman(3888);
-	
+	char *str[] = { "ab", "a ",};
+	char *ret = longestCommonPrefix(str, ftArraySize(str));
 	system("pause");
 }

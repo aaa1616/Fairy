@@ -1,5 +1,4 @@
-#include "revws.h"
-
+#include "rws.h"
 static void swap(char *s, int b, int e) {
 	while (b < e) {
 		s[b] ^= s[e];
@@ -12,19 +11,22 @@ static void swap(char *s, int b, int e) {
 
 void reverseWords(char *s) {
 	int i = 0;
-	int b = -1, e = -1;
+	int b = 0, e = 0;
 	if (s[i] == 0) {
 		return;
 	}
 	while (1) {
 		if (s[i] != ' ') {
-			e++;
 			s[e] = s[i];
+			e++;
 		}
 		if ((b != e) && (s[i + 1] == ' ' || s[i + 1] == 0)) {
-			swap(s, b + 1, e);
-			e++;
+			swap(s, b, e - 1);
+			if (s[e] == 0) {
+				break;
+			}
 			s[e] = ' ';
+			e++;
 			b = e;
 		}
 		if (s[i + 1] == 0) {
@@ -32,8 +34,8 @@ void reverseWords(char *s) {
 		}
 		i++;
 	}
-	if (e == -1) {
-		e = 0;
+	if (b == e && e != 0) {
+		e--;
 	}
 	s[e] = 0;
 	if (e > 0) {

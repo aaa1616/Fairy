@@ -139,17 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="aidl.c" />
     <ClCompile Include="buystock.c" />
     <ClCompile Include="ftarray.c" />
     <ClCompile Include="ftmem.c" />
     <ClCompile Include="largestnum.c" />
     <ClCompile Include="repeat_dna.c" />
-    <ClCompile Include="revws.c" />
+    <ClCompile Include="rws.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="aidl.h" />
     <ClInclude Include="buystock.h" />
     <ClInclude Include="ftaray.h" />
     <ClInclude Include="ftinclib.h" />
@@ -160,8 +158,8 @@
     <ClInclude Include="fthashtable.h" />
     <ClInclude Include="largetnum.h" />
     <ClInclude Include="repeat_dna.h" />
-    <ClInclude Include="revws.h" />
     <ClInclude Include="uthash.h" />
+    <ClInclude Include="rws.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
