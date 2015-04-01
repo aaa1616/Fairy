@@ -1,7 +1,7 @@
 #include "ftinclib.h"
 #include <time.h>
 #include <io.h>
-#include "largetnum.h"
+#include "aidl.h"
 
 struct Test {
 	int a;
@@ -10,7 +10,7 @@ struct Test {
 #define FUNC_ITEM 100
 #define BUFF_SIZE 200
 
-char aidl_table[200][100][200];
+//char aidl_table[200][100][200];
 int main(void)
 {
 	//char ***aidl_table = malloc(FILE_ITEM * sizeof (char *));
@@ -50,9 +50,13 @@ int main(void)
 	//scanf("%s", des);
 	//struct my_struct *s;
 	//HASH_FIND_STR(fnHash, des, s);
+	FILE *file =fopen("E:\\aidl\\filelist", "r");
+	char filelist[500][100];
+	int i = sizeof(filelist);
+	memset(filelist, 0, 500 * 100 * sizeof(char));
+	if (file != NULL) {
+		getAidlFilename(file, filelist);
+	}
 
-	//printf("%s\n", aidl_table[s->id][1]);
-	char *str[] = { "ab", "a ",};
-	char *ret = longestCommonPrefix(str, ftArraySize(str));
 	system("pause");
 }

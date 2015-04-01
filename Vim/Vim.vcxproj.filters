@@ -45,6 +45,9 @@
     <ClCompile Include="repeat_dna.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="aidl.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
@@ -81,6 +84,9 @@
       <Filter>Header Files\lib</Filter>
     </ClInclude>
     <ClInclude Include="repeat_dna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aidl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
