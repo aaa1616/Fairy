@@ -52,7 +52,7 @@ int main(void)
 	//HASH_FIND_STR(fnHash, des, s);
 
 	//printf("%s\n", aidl_table[s->id][1]);
-	char *str[] = { "ab", "a ",};
-	char *ret = longestCommonPrefix(str, ftArraySize(str));
+	divide(INT_MAX, 1);
+
 	system("pause");
 }

@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="aidl.c" />
     <ClCompile Include="buystock.c" />
     <ClCompile Include="ftarray.c" />
     <ClCompile Include="ftmem.c" />
     <ClCompile Include="largestnum.c" />
     <ClCompile Include="repeat_dna.c" />
     <ClCompile Include="rws.c" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>

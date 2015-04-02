@@ -8,5 +8,6 @@ int lengthOfLongestSubstring(char *s);
 double findMedianSortedArrays(int A[], int m, int B[], int n);
 char *longestPalindrome(char *s);
 char *longestCommonPrefix(char *strs[], int n);
+int divide(int dividend, int divisor);
 
 #endif // !_LARGEST_NUM
