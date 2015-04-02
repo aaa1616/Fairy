@@ -9,7 +9,9 @@ struct my_struct {
 	int id;
 	UT_hash_handle hh;
 };
-struct my_struct *fnHash;
+extern struct my_struct *fnHash;
+
+void getAidlFilename(FILE *file, char filelist[][100]);
 int parseAidl(FILE *file, char *filename, int id, char ***aidl_table);
 
 #endif

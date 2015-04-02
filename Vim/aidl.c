@@ -1,5 +1,7 @@
 #include "aidl.h"
 
+struct my_struct *fnHash;
+
 void hash_add_filename(char *name, int id)
 {
 	struct my_struct *s;
@@ -12,6 +14,26 @@ void hash_add_filename(char *name, int id)
 	}
 	else {
 		printf("Error : %s\n", name);
+	}
+}
+
+void getAidlFilename(FILE *file, char filelist[][100])
+{
+	char c;
+	char filename[100];
+	int flag = 1, index = 0;
+	filename[0] = 0;
+	while ((c = getc(file)) != EOF) {
+		if ((c != '\n' && flag != 0) || (flag == 0 && isalpha(c))) {
+			strncat(filename, &c, 1);
+			flag = 1;
+		}
+		else {
+			strcat(filelist[index], filename);
+			index++;
+			flag = 0;
+			filename[0] = 0;
+		}
 	}
 }
 

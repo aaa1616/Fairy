@@ -89,5 +89,8 @@
     <ClInclude Include="repeat_dna.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="aidl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
