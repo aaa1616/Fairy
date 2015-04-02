@@ -2,10 +2,8 @@
 #include <time.h>
 #include <io.h>
 #include "aidl.h"
+#include "graph.h"
 
-struct Test {
-	int a;
-};
 #define FILE_ITEM 200
 #define FUNC_ITEM 100
 #define BUFF_SIZE 200
@@ -50,16 +48,19 @@ int main(void)
 	//scanf("%s", des);
 	//struct my_struct *s;
 	//HASH_FIND_STR(fnHash, des, s);
-	FILE *file =fopen("E:\\aidl\\filelist", "r");
-	char filelist[500][100];
-	int i = sizeof(filelist);
-	memset(filelist, 0, 500 * 100 * sizeof(char));
-	if (file != NULL) {
-		getAidlFilename(file, filelist);
-	}
+	//FILE *file =fopen("E:\\aidl\\filelist", "r");
+	//char filelist[500][100];
+	//int i = sizeof(filelist);
+	//memset(filelist, 0, 500 * 100 * sizeof(char));
+	//if (file != NULL) {
+	//	getAidlFilename(file, filelist);
+	//}
 
-	//printf("%s\n", aidl_table[s->id][1]);
-	divide(INT_MAX, 1);
+	////printf("%s\n", aidl_table[s->id][1]);
+	//divide(INT_MAX, 1);
+	GRAPH *g = createGraph();
+	dfs(g);
+	delGraph(g);
 
 	system("pause");
 }

@@ -51,6 +51,9 @@
     <ClCompile Include="aidl.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="graph.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="aidl.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graph.h">
+      <Filter>Header Files\lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

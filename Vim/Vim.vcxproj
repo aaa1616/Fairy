@@ -143,6 +143,7 @@
     <ClCompile Include="buystock.c" />
     <ClCompile Include="ftarray.c" />
     <ClCompile Include="ftmem.c" />
+    <ClCompile Include="graph.c" />
     <ClCompile Include="largestnum.c" />
     <ClCompile Include="repeat_dna.c" />
     <ClCompile Include="rws.c" />
@@ -159,6 +160,7 @@
     <ClInclude Include="ftmath.h" />
     <ClInclude Include="ftmem.h" />
     <ClInclude Include="fthashtable.h" />
+    <ClInclude Include="graph.h" />
     <ClInclude Include="largetnum.h" />
     <ClInclude Include="repeat_dna.h" />
     <ClInclude Include="uthash.h" />
