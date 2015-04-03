@@ -12,6 +12,7 @@ int **threeSum(int num[], int n, int *returnSize);
 int threeSumClosest(int *num, int n, int target);
 char **letterCombinations(char *digits, int *returnSize);
 int longestValidParentheses(char *s);
+int divide(int dividend, int divisor);
 int **permute(int numbers[], int n, int *numRows);
 
 #endif // !_LARGEST_NUM

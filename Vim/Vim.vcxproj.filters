@@ -45,7 +45,13 @@
     <ClCompile Include="repeat_dna.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
     <ClCompile Include="aidl.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="graph.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
     <ClCompile Include="hihocoder.c">
@@ -97,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="aidl.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graph.h">
+      <Filter>Header Files\lib</Filter>
     </ClInclude>
     <ClInclude Include="tiretree.h">
       <Filter>Header Files</Filter>
