@@ -14,5 +14,7 @@ char **letterCombinations(char *digits, int *returnSize);
 int longestValidParentheses(char *s);
 int divide(int dividend, int divisor);
 int **permute(int numbers[], int n, int *numRows);
+int *countSort(int *num, int n, int k);
+int selectKth(int *num, int b, int e, int k);
 
 #endif // !_LARGEST_NUM

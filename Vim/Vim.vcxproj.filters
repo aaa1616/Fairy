@@ -45,13 +45,7 @@
     <ClCompile Include="repeat_dna.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
     <ClCompile Include="aidl.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
-    <ClCompile Include="graph.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
     <ClCompile Include="hihocoder.c">
@@ -60,7 +54,16 @@
     <ClCompile Include="tiretree.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="graph.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
     <ClCompile Include="Source.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="nqueen.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="microsoft.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,11 +107,19 @@
     <ClInclude Include="aidl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="graph.h">
-      <Filter>Header Files\lib</Filter>
-    </ClInclude>
     <ClInclude Include="tiretree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="graph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nqueen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

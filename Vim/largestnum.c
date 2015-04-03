@@ -66,6 +66,26 @@ void quicksortdiff(int **num, int b, int e)
 	quicksortdiff(num, b, m);
 	quicksortdiff(num, m + 1, e);
 }
+int *countSort(int *num, int n, int k)
+{
+	int *c = malloc(k * sizeof(int));
+	int *ret = malloc(n * sizeof(int));
+	memset(c, 0, k * sizeof(int));
+	memset(ret, 0, n * sizeof(int));
+	int i;
+	for (i = 0; i < n; i++) {
+		c[num[i]]++;
+	}
+	for (int i = 1; i < k; i++) {
+		c[i] += c[i - 1];
+	}
+	for (int i = n - 1; i >= 0; i--) {
+		ret[c[num[i]] - 1] = num[i];
+		c[num[i]]--;
+	}
+	free(c);
+	return ret;
+}
 char *largestNumber(int *num, int n)
 {
 	char *numStr = malloc(n * NUM_SIZE);
@@ -546,4 +566,31 @@ int **permute(int numbers[], int n, int *numRows) {
 	}
 	interPermute(numbers, 0, n, numRows);
 	return ret;
+}
+int selectKth(int *num, int b, int e, int k)
+{
+	if (b >= e) {
+		return num[b];
+	}
+	int cmpIndex = b + rand() % (e - b);
+	swap(&num[cmpIndex], &num[e - 1]);
+	int i, m = b - 1;
+	for (i = b; i < e - 1; i++) {
+		if (num[i] < num[e - 1]) {
+			m++;
+			swap(&num[i], &num[m]);
+		}
+	}
+	m++;
+	swap(&num[m], &num[e - 1]);
+	i = m - b + 1;
+	if (i == k) {
+		return num[m];
+	}
+	else if(k < i) {
+		selectKth(num, b, m, k);
+	}
+	else {
+		selectKth(num, m + 1, e, k - i);
+	}
 }

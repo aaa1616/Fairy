@@ -9,6 +9,8 @@
 #define	Trace(fmt, ...)
 #endif
 
+#define myscanf(file, fmt, ...) fscanf(file, fmt, ##__VA_ARGS__)
+
 #define SUCCESS_STATUS 0
 #define FAILUTRE_STATUS -1
 #define OUTOFMEM_STATUS 1

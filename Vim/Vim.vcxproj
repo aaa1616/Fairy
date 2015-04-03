@@ -146,9 +146,10 @@
     <ClCompile Include="graph.c" />
     <ClCompile Include="hihocoder.c" />
     <ClCompile Include="largestnum.c" />
+    <ClCompile Include="microsoft.c" />
+    <ClCompile Include="nqueen.c" />
     <ClCompile Include="repeat_dna.c" />
     <ClCompile Include="rws.c" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="Source.c" />
     <ClCompile Include="test.c" />
     <ClCompile Include="tiretree.c" />
@@ -165,10 +166,14 @@
     <ClInclude Include="fthashtable.h" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="largetnum.h" />
+    <ClInclude Include="nqueen.h" />
     <ClInclude Include="repeat_dna.h" />
     <ClInclude Include="tiretree.h" />
     <ClInclude Include="uthash.h" />
     <ClInclude Include="rws.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
