@@ -48,6 +48,15 @@
     <ClCompile Include="aidl.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="hihocoder.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="tiretree.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
@@ -87,6 +96,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="aidl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tiretree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

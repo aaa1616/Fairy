@@ -485,3 +485,35 @@ int longestValidParentheses(char *s) {
 	free(stack);
 	return max;
 }
+int **ret;
+int *data;
+void interPermute(int numbers[], int index, int n, int *numRows) {
+	if (index == n) {
+		(*numRows)++;
+		return;
+	}
+	for (int i = index; i < n; i++) {
+		swap(&numbers[index], &numbers[i]);
+		int last = *numRows;
+		ret[*numRows][index] = numbers[index];
+		interPermute(numbers, index + 1, n, numRows);
+		if (i != n - 1) {
+			memcpy(ret[*numRows], ret[last], n * sizeof(int));
+		}
+		swap(&numbers[index], &numbers[i]);
+	}
+}
+int **permute(int numbers[], int n, int *numRows) {
+	int total = n;
+	*numRows = 0;
+	for (int i = n - 1; i >= 1; i--) {
+		total *= i;
+	}
+	ret = malloc(total * sizeof(int *));
+	data = malloc(total * n * sizeof(int));
+	for (int i = 0; i < total; i++) {
+		ret[i] = data + i * n;
+	}
+	interPermute(numbers, 0, n, numRows);
+	return ret;
+}

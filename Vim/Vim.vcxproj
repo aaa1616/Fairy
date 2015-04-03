@@ -143,10 +143,13 @@
     <ClCompile Include="buystock.c" />
     <ClCompile Include="ftarray.c" />
     <ClCompile Include="ftmem.c" />
+    <ClCompile Include="hihocoder.c" />
     <ClCompile Include="largestnum.c" />
     <ClCompile Include="repeat_dna.c" />
     <ClCompile Include="rws.c" />
+    <ClCompile Include="Source.c" />
     <ClCompile Include="test.c" />
+    <ClCompile Include="tiretree.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aidl.h" />
@@ -160,6 +163,7 @@
     <ClInclude Include="fthashtable.h" />
     <ClInclude Include="largetnum.h" />
     <ClInclude Include="repeat_dna.h" />
+    <ClInclude Include="tiretree.h" />
     <ClInclude Include="uthash.h" />
     <ClInclude Include="rws.h" />
   </ItemGroup>
