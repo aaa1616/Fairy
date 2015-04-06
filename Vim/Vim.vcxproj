@@ -145,6 +145,7 @@
     <ClCompile Include="ftmem.c" />
     <ClCompile Include="graph.c" />
     <ClCompile Include="hihocoder.c" />
+    <ClCompile Include="largeData.c" />
     <ClCompile Include="largestnum.c" />
     <ClCompile Include="microsoft.c" />
     <ClCompile Include="nqueen.c" />
@@ -165,6 +166,7 @@
     <ClInclude Include="ftmem.h" />
     <ClInclude Include="fthashtable.h" />
     <ClInclude Include="graph.h" />
+    <ClInclude Include="largeData.h" />
     <ClInclude Include="largetnum.h" />
     <ClInclude Include="nqueen.h" />
     <ClInclude Include="repeat_dna.h" />
