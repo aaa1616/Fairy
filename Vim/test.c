@@ -5,6 +5,7 @@
 //#include "graph.h"
 //#include "largetnum.h"
 //#include "nqueen.h"
+//#include "largeData.h"
 //
 //#define FILE_ITEM 200
 //#define FUNC_ITEM 100
@@ -87,6 +88,7 @@
 //	//printf("\n");
 //	//delBinTree(bt->root);
 //	//free(bt);
+//	genData();
 //
 //	system("pause");
 //}

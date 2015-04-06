@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <math.h>
 
-#define MAXNUM 100005
+#define MAXNUM 10005
 
 #define myscanf(file, fmt, ...) fscanf(file, fmt, ##__VA_ARGS__)
 
