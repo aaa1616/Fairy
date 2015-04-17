@@ -594,3 +594,334 @@ int selectKth(int *num, int b, int e, int k)
 		selectKth(num, m + 1, e, k - i);
 	}
 }
+int **generateMatrix(int n) {
+	int i, max = n * n, x = 0, y = 0, direct = 0;
+	int leftRow = n, leftCol = n, step = 0;
+	int xdirect[] = { 1, 0, -1, 0 };
+	int ydirect[] = { 0, 1, 0, -1 };
+
+	int **ret = malloc(n * sizeof(int *));
+	int *data = malloc(n * n * sizeof(int));
+	for (i = 0; i < n; i++) {
+		ret[i] = data + n * i;
+	}
+	i = 1;
+	while (i <= max) {
+		ret[x][y] = i;
+		i++;
+		step++;
+		if (step == leftRow && ydirect[direct] == 0) {
+			step = 0;
+			leftCol--;
+			direct++;
+			direct %= 4;
+		}
+		if (step == leftCol && xdirect[direct] == 0) {
+			step = 0;
+			leftRow--;
+			direct++;
+			direct %= 4;
+		}
+		y += xdirect[direct];
+		x += ydirect[direct];
+	}
+	return ret;
+	
+}
+struct ListNode *rotateRight(struct ListNode *head, int k) {
+	struct ListNode emptyHead;
+	struct ListNode *one, *two, *newHead;
+
+	if (head == NULL || head->next == NULL || k == 0) {
+		return head;
+	}
+
+	int count = 0;
+	one = emptyHead.next = head;
+	two = &emptyHead;
+
+	while (one != NULL) {
+		count++;
+		one = one->next;
+	}
+	one = emptyHead.next;
+	count = 0;
+	k %= count;
+	while (one != NULL) {
+		if (count >= k) {
+			two = two->next;
+		}
+		if (one->next == NULL) {
+			one->next = head;
+			head = two->next;
+			two->next = NULL;
+
+			break;
+		}
+		one = one->next;
+		count++;
+	}
+	return head;
+}
+char *simplifyPath(char *path) {
+	int i, stackpos = 0, index = 1, pos = 1, count = 0;
+	int len = strlen(path);
+	int *stack = malloc(len * sizeof(int));
+	stack[stackpos++] = 0;
+	for (i = 1; i < len; i++) {
+		if (path[i] == '/') {
+			if (count == 0) {
+				pos++;
+				continue;
+			}
+			if (strncmp(path + pos, ".", count) == 0) {
+				index = stack[stackpos - 1] + 1;
+			}
+			else if (strncmp(path + pos, "..", count) == 0) {
+				stackpos--;
+				if (stackpos > 0) {
+					index = stack[stackpos - 1] + 1;
+				}
+				else {
+					stackpos = 1;
+					index = 1;
+				}
+			}
+			else {
+				stack[stackpos++] = index;
+				path[index++] = path[i];
+			}
+			pos = i + 1;
+			count = 0;
+		}
+		else {
+			path[index++] = path[i];
+			count++;
+		}
+	}
+
+	if (count == 0) {
+		if (index > 1 && path[index - 1] == '/') {
+			path[index - 1] = 0;
+		}
+		else {
+			path[index] = 0;
+		}
+		free(stack);
+		return path;
+	}
+
+	if (strncmp(path + pos, ".", count) == 0) {
+		index = stack[stackpos - 1] + 1;
+		path[index] = 0;
+	}
+	else if (strncmp(path + pos, "..", count) == 0) {
+		stackpos--;
+		if (stackpos > 0) {
+			index = stack[stackpos - 1] + 1;
+		}
+		else {
+			stackpos = 1;
+			index = 1;
+		}
+		path[index] = 0;
+	}
+	else if (index > 1 && path[index - 1] == '/') {
+		path[index - 1] = 0;
+	}
+	else {
+		path[index] = 0;
+	}
+	free(stack);
+
+	return path;
+}
+char *genLine(int b, int e, int len, int L, char **words)
+{
+	int i, spaces = L - len, wordlen, pos = 0;
+	int as, rs;
+	char *ret = malloc((L + 1) * sizeof(char));
+	memset(ret, ' ', L * sizeof(char));
+	if (b == e) {
+		memcpy(ret, words[b], strlen(words[b]) * sizeof(char));
+		ret[L] = 0;
+		return ret;
+	}
+	as = spaces / (e - b);
+	rs = spaces % (e - b);
+	for (i = b; i <= e; i++) {
+		wordlen = strlen(words[i]);
+		memcpy(ret + pos, words[i], wordlen * sizeof(char));
+		pos += wordlen + as + 1 + rs;
+		rs = rs > 0 ? --rs : 0;
+	}
+	ret[L] = 0;
+	return ret;
+}
+char *genLastLine(int b, int e, int len, int L, char **words)
+{
+	int i, pos = 0, wordlen;
+	char *ret = malloc((L + 1) * sizeof(char));
+	memset(ret, ' ', L * sizeof(char));
+
+	for (i = b; i <= e; i++) {
+		wordlen = strlen(words[i]);
+		memcpy(ret + pos, words[i], wordlen * sizeof(char));
+		pos += wordlen + 1;
+	}
+	ret[L] = 0;
+	return ret;
+}
+
+char **fullJustify(char **words, int n, int L, int *outputSize) {
+	int i, wordlen, index = 0, b = 0, len = 0;
+	char **ret;
+	if (n == 0) {
+		*outputSize = 0;
+		return NULL;
+	}
+	ret = malloc(n * sizeof(char *));
+	for (i = 0; i < n; i++) {
+		wordlen = strlen(words[i]);
+		if (len + wordlen >= L) {
+			if (len + wordlen == L) {
+				ret[index++] = genLine(b, i, len + wordlen, L, words);
+				b = i + 1;
+				len = 0;
+			}
+			else {
+				ret[index++] = genLine(b, i - 1, len, L, words);
+				b = i;
+				len = wordlen + 1;
+			}
+		}
+		else {
+			len += wordlen + 1;
+		}
+	}
+	if (b != n) {
+		ret[index++] = genLastLine(b, n - 1, len, L, words);
+	}
+	*outputSize = index;
+	return ret;
+}
+int uniquePaths(int m, int n) {
+	int ret[100];
+	int i, j;
+	if (m == 0 || n == 0) {
+		return 0;
+	}
+	memset(ret, 0, 100 * sizeof(int));
+	ret[0] = 1;
+	for (i = 0; i < m; i++) {
+		for (j = 1; j < n; j++) {
+			ret[j] += ret[j - 1];
+		}
+	}
+	return ret[n - 1];
+}
+void comb(int n, int k, int b, int resultPos, int *retPos, int **ret, int *result) {
+	if (resultPos == k) {
+		ret[*retPos] = malloc(k * sizeof(int));
+		memcpy(ret[*retPos], result, k * sizeof(int));
+		(*retPos)++;
+		return;
+	}
+	for (int i = b; i <= n; i++) {
+		result[resultPos] = i;
+		comb(n, k, i + 1, resultPos + 1, retPos, ret, result);
+	}
+}
+
+int **combine(int n, int k, int **columnSizes, int *returnSize) {
+	int i;
+	int **ret, *tempResult, *columnS;
+	if (k <= 0) {
+		*returnSize = 0;
+		return NULL;
+	}
+
+	*returnSize = uniquePaths(k + 1, n - k + 1);
+	ret = malloc(*returnSize * sizeof(int *));
+	columnS = malloc(*returnSize * sizeof(int));
+	for (i = 0; i < *returnSize; i++) {
+		columnS[i] = k;
+	}
+	*columnSizes = columnS;
+
+	*returnSize = 0;
+	tempResult = malloc(k * sizeof(int));
+	comb(n, k, 1, 0, returnSize, ret, tempResult);
+
+	free(tempResult);
+
+	return ret;
+}
+struct ListNode *partition(struct ListNode *head, int x) {
+	int isFound = 0;
+	struct ListNode newHead;
+	struct ListNode *insertPos, *insertPosPrev, *cur, *prev;
+	newHead.next = head;
+	prev = insertPosPrev = &newHead;
+	insertPos = cur = head;
+	while (cur != NULL) {
+		 if (cur->val >= x && isFound == 0) {
+		     insertPos = cur;
+		     isFound = 1;
+		     insertPosPrev = prev;
+		 }
+		if (cur->val < x) {
+			insertPosPrev->next = cur;
+			prev->next = cur->next;
+			cur->next = insertPos;
+			insertPosPrev = cur;
+			cur = prev;
+		}
+		prev = cur;
+		cur = cur->next;
+	}
+	return newHead.next;
+}
+int isScramble(char* s1, char* s2) {
+	int ret;
+	int i, j, k, m;
+	int len, len1 = strlen(s1), len2 = strlen(s2);
+	char ***scrambled, **temp2d, *temp3d;
+	if (len1 != len2 || len1 == 0) {
+		return 0;
+	}
+	len = len1;
+	scrambled = malloc(len * sizeof(char **));
+	temp2d = malloc(len * len * sizeof(char *));
+	temp3d = malloc(len * len * len * sizeof(char));
+	memset(temp3d, 0, len * len * len * sizeof(char));
+	for (i = 0; i < len; i++) {
+		for (j = 0; j < len; j++) {
+			temp2d[j] = temp3d + i * len * len + j * len;
+		}
+		scrambled[i] = temp2d + i * len;
+	}
+	for (i = 0; i < len; i++) {
+		for (j = 0; j < len - i; j++) {
+			for (k = 0; k < len - i; k++) {
+				if (i == 0) {
+					scrambled[0][k][j] = s1[j] == s2[k] ? 1 : 0;
+					continue;
+				}
+				for (m = 0; m < i; m++) {
+					if (scrambled[m][j][k] && scrambled[i - m - 1][j + m + 1][k + m + 1] ||
+						scrambled[m][j][k + i - m] && scrambled[i - m - 1][j + m + 1][k]
+						) {
+						scrambled[i][j][k] = 1;
+						break;
+					}
+				}
+			}
+		}
+	}
+	ret = scrambled[len - 1][0][0];
+	free(temp3d);
+	free(temp2d);
+	free(scrambled);
+	return ret;
+}
