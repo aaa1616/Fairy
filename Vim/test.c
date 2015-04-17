@@ -158,6 +158,7 @@ int main(void)
 //	printf("\n");
 char *s1 = "aa", *s2 = "aa";
 int ret = isScramble(s1, s2);
+
 	
 
 	system("pause");
