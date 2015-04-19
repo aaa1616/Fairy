@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="acmcoder.c" />
     <ClCompile Include="aidl.c" />
     <ClCompile Include="buystock.c" />
     <ClCompile Include="ftarray.c" />
