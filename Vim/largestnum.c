@@ -897,7 +897,7 @@ int isScramble(char* s1, char* s2) {
 	memset(temp3d, 0, len * len * len * sizeof(char));
 	for (i = 0; i < len; i++) {
 		for (j = 0; j < len; j++) {
-			temp2d[j] = temp3d + i * len * len + j * len;
+			temp2d[i * len + j] = temp3d + i * len * len + j * len;
 		}
 		scrambled[i] = temp2d + i * len;
 	}
