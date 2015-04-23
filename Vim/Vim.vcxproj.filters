@@ -72,6 +72,9 @@
     <ClCompile Include="acmcoder.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="hiho_42.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
