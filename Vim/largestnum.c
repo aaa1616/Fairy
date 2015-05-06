@@ -925,3 +925,31 @@ int isScramble(char* s1, char* s2) {
 	free(scrambled);
 	return ret;
 }
+
+struct ListNode *reverseBetween(struct ListNode *head, int m, int n) {
+	struct ListNode newHead;
+	struct ListNode *prev, *cur, *next, *reprev;
+	int i = 1;
+	prev = &newHead;
+	cur = newHead.next = head;
+	while (cur != NULL && i <= n) {
+		next = cur->next;
+		if (i == m) {
+			reprev = prev;
+		}
+		else if (i > m) {
+			if (next == NULL) {
+				newHead.next = cur;
+			}
+			cur->next = prev;
+		}
+		prev = cur;
+		cur = next;
+		i++;
+	}
+
+	reprev->next->next = cur;
+	reprev->next = prev;
+
+	return newHead.next;
+}

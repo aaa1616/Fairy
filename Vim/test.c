@@ -137,27 +137,25 @@
 //	//mymemcpy(test + 1, test, 4);
 //	//printf("%s-%s\n", test, test + 1);
 //	//uniquePaths(5, 5);
-////int test[] = {1, 1};
-////	struct ListNode head, *prev, *node;
-////	prev = &head;
-////	for (int i = 0; i < ftArraySize(test); i++) {
-////		node = malloc(sizeof(struct ListNode));
-////		node->next = NULL;
-////		node->val = test[i];
-////		prev->next = node;
-////		prev = node;
-////	}
-////	node = partition(head.next, 0);
-////
-////	for (int i = 0; i < ftArraySize(test); i++) {
-////		printf("%d ", node->val);
-////		prev = node;
-////		node = node->next;
+//	int test[] = {1, 2, 3, 4};
+//	struct ListNode head, *prev, *node;
+//	prev = &head;
+//	for (int i = 0; i < ftArraySize(test); i++) {
+//		node = malloc(sizeof(struct ListNode));
+//		node->next = NULL;
+//		node->val = test[i];
+//		prev->next = node;
+//		prev = node;
+//	}
+//	node = reverseBetween(head.next, 1, 2);
+//
+//	for (int i = 0; i < ftArraySize(test); i++) {
+//		printf("%d ", node->val);
+//		prev = node;
+//		node = node->next;
 ////		free(prev);
-////	}
-////	printf("\n");
-//char *s1 = "aa", *s2 = "aa";
-//int ret = isScramble(s1, s2);
+//	}
+//	printf("\n");
 //
 //	
 //

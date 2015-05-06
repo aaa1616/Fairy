@@ -143,9 +143,11 @@
     <ClCompile Include="aidl.c" />
     <ClCompile Include="buystock.c" />
     <ClCompile Include="ftarray.c" />
+    <ClCompile Include="ftest.cpp" />
     <ClCompile Include="ftmem.c" />
     <ClCompile Include="graph.c" />
     <ClCompile Include="hihocoder.c" />
+    <ClCompile Include="hiho_43.c" />
     <ClCompile Include="largeData.c" />
     <ClCompile Include="largestnum.c" />
     <ClCompile Include="microsoft.c" />

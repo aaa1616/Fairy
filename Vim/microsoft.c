@@ -153,3 +153,105 @@
 //
 //	return 0;
 //}
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define LONGLONG long long
+#define MOD 12357
+
+int k;
+LONGLONG **c, *cdata;
+LONGLONG *codata;
+
+void mulm(LONGLONG **a, LONGLONG **b, LONGLONG **ret, int powk)
+{
+	int i, j, k;
+	memset(cdata, 0, powk * powk * sizeof(LONGLONG));
+	for (i = 0; i < powk; i++) {
+		for (j = 0; j < powk; j++) {
+			for (k = 0; k < powk; k++) {
+				c[i][j] += a[i][k] * a[k][j];
+			}
+			c[i][j] %= MOD;
+		}
+	}
+	memcpy(ret[0], cdata, powk * powk * sizeof(LONGLONG));
+}
+
+void mula(LONGLONG *a, LONGLONG **m, LONGLONG *ret, int powk)
+{
+	int i, j;
+	memset(codata, 0, powk * sizeof(LONGLONG));
+	for (i = 0; i < powk; i++) {
+		for (j = 0; j < powk; j++) {
+			codata[i] += a[j] * m[j][i];
+		}
+		codata[i] %= MOD;
+	}
+	memcpy(ret, codata, powk * sizeof(LONGLONG));
+}
+
+
+static void dfs(int x, int y, int col, LONGLONG **d)
+{
+	if (col == k) {
+		d[y][x] = 1;
+		return;
+	}
+	dfs(x << 1, (y << 1) + 1, col + 1, d);
+	dfs((x << 1) + 1, y << 1, col + 1, d);
+	if (col + 2 <= k) {
+		dfs((x << 2) + 3, (y << 2) + 3, col + 2, d);
+	}
+}
+int main()
+{
+	FILE *file = fopen("input.txt", "r");
+	int n, i, powk;
+	LONGLONG **m, *mdata;
+	LONGLONG *a;
+	fscanf(file, "%d%d", &k, &n);
+	powk = 1 << k;
+
+	a = malloc(powk * sizeof(LONGLONG));
+	codata = malloc(powk * sizeof(LONGLONG));
+
+	m = malloc(powk * sizeof(LONGLONG *));
+	c = malloc(powk * sizeof(LONGLONG *));
+
+	mdata = malloc(powk * powk * sizeof(LONGLONG));
+	cdata = malloc(powk * powk * sizeof(LONGLONG));
+
+	for (i = 0; i < powk; i++) {
+		m[i] = mdata + i * powk;
+		c[i] = cdata + i * powk;
+	}
+
+	memset(mdata, 0, powk * powk * sizeof(LONGLONG));
+	memset(cdata, 0, powk * powk * sizeof(LONGLONG));
+
+	memset(a, 0, powk * sizeof(LONGLONG));
+	memset(codata, 0, powk * sizeof(LONGLONG));
+
+	a[powk - 1] = 1;
+	dfs(0, 0, 0, m);
+
+	for (; n > 0; n >>= 1, mulm(m, m, m, powk)) {
+		if (n & 1) {
+			mula(a, m, a, powk);
+		}
+	}
+	printf("%d\n", a[powk - 1]);
+
+	free(m);
+	free(c);
+
+	free(mdata);
+	free(cdata);
+
+	free(a);
+	free(codata);
+
+	return 0;
+}
