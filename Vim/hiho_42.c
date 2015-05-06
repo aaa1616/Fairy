@@ -1,4 +1,4 @@
-#define HIHO_42
+//#define HIHO_42
 #ifdef HIHO_42
 #include <stdio.h>
 #include <string.h>

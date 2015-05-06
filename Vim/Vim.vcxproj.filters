@@ -75,6 +75,18 @@
     <ClCompile Include="hiho_42.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
+    <ClCompile Include="ms_2.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_3.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_1.cpp">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_4.cpp">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">

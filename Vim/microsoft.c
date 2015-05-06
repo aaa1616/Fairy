@@ -1,3 +1,4 @@
+//#define MICROSOFT
 #ifdef MICROSOFT
 #include <stdio.h>
 #include <string.h>

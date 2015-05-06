@@ -146,10 +146,14 @@
     <ClCompile Include="ftmem.c" />
     <ClCompile Include="graph.c" />
     <ClCompile Include="hihocoder.c" />
+    <ClCompile Include="hiho_4.cpp" />
     <ClCompile Include="hiho_42.c" />
     <ClCompile Include="largeData.c" />
     <ClCompile Include="largestnum.c" />
     <ClCompile Include="microsoft.c" />
+    <ClCompile Include="ms_1.cpp" />
+    <ClCompile Include="ms_2.c" />
+    <ClCompile Include="ms_3.c" />
     <ClCompile Include="nqueen.c" />
     <ClCompile Include="repeat_dna.c" />
     <ClCompile Include="rws.c" />
