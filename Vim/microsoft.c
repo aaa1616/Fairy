@@ -1,257 +1,208 @@
-//#include <stdio.h>
-//#include <string.h>
-//#include <stdlib.h>
-//#include <ctype.h>
-//#include <math.h>
-//
-//#define MAXNUM 10005
-//
-//#define myscanf(file, fmt, ...) fscanf(file, fmt, ##__VA_ARGS__)
-//
-//typedef struct _LINKLIST {
-//	int data;
-//	struct _LINKLIST *next;
-//}LINKLIST;
-//
-//typedef struct _QUEUE {
-//	LINKLIST *front, *rear;
-//}QUEUE;
-//
-//static QUEUE *initQueue()
-//{
-//	QUEUE *q = malloc(sizeof(QUEUE));
-//	memset(q, 0, sizeof(QUEUE));
-//	return q;
-//}
-//static void delQueue(QUEUE *q)
-//{
-//	LINKLIST *next, *front = q->front;
-//	while (front != NULL) {
-//		next = front->next;
-//		free(front);
-//		front = next;
-//	}
-//	free(q);
-//}
-//static int isQueueEmpty(QUEUE *q)
-//{
-//	return q->front == NULL ? 1 : 0;
-//}
-//static void enqueue(QUEUE *q, int data)
-//{
-//	if (q->front != NULL) {
-//		LINKLIST *newnode = malloc(sizeof(LINKLIST));
-//		newnode->data = data;
-//		newnode->next = NULL;
-//		q->rear->next = newnode;
-//		q->rear = newnode;
-//	}
-//	else {
-//		q->front = q->rear = malloc(sizeof(LINKLIST));
-//		q->front->data = data;
-//		q->front->next = NULL;
-//	}
-//}
-//static int dequeue(QUEUE *q)
-//{
-//	LINKLIST *node = q->front;
-//	int data = node->data;
-//	q->front = q->front->next;
-//	free(node);
-//	return data;
-//}
-//
-//
-//typedef struct _MODULE {
-//	int k[3];
-//	int kNum;
-//	int count;
-//}MODULE;
-//
-//int main(void)
-//{
-//	int n, i = 0;
-//	int modulesNum, signalNum;
-//	LINKLIST *hash[MAXNUM];
-//	//int *signal;
-//	MODULE *modules;
-//	QUEUE *q = initQueue();
-//
-//	FILE *file = fopen("input.txt", "r");
-//	//read test case
-//	myscanf(file, "%d", &n);
-//	//scanf("%d", &n);
-//	while (n--) {
-//		memset(hash, 0, MAXNUM * sizeof(LINKLIST *));
-//
-//		myscanf(file, "%d%d", &modulesNum, &signalNum);
-//		//scanf("%d%d", &modulesNum, &signalNum);
-//		//read init sign
-//		//signal = malloc(signalNum * sizeof(int));
-//		for (i = 0; i < signalNum; i++) {
-//			int st;
-//			myscanf(file, "%d", &st);
-//			//scanf("%d", &st);
-//			enqueue(q, st);
-//		}
-//		//read module info
-//		modules = malloc(modulesNum * sizeof(MODULE));
-//		memset(modules, -1, modulesNum * sizeof(MODULE));
-//		for (i = 0; i < modulesNum; i++) {
-//			int s, k;
-//			myscanf(file, "%d%d", &s, &k);
-//			//scanf("%d%d", &s, &k);
-//			for (int j = 0; j < k; j++) {
-//				int thisMs;
-//				myscanf(file, "%d", &thisMs);
-//				//scanf("%d", &thisMs);
-//				modules[i].k[j] = thisMs;
-//			}
-//			modules[i].kNum = k;
-//			modules[i].count= 0;
-//			if (hash[s] == NULL) {
-//				hash[s] = malloc(sizeof(LINKLIST));
-//				hash[s]->data = i;
-//				hash[s]->next = NULL;
-//			}
-//			else {
-//				LINKLIST *p = malloc(sizeof(LINKLIST));
-//				p->data = i;
-//				p->next = hash[s]->next;
-//				hash[s]->next = p;
-//			}
-//		}
-//		while (!isQueueEmpty(q)) {
-//			int st = dequeue(q);
-//			LINKLIST *p = hash[st];
-//			while (p != NULL) {
-//				int md = p->data;
-//				int knum = modules[md].kNum;
-//				(modules[md].count)++;
-//				for (i = 0; i < knum; i++) {
-//					enqueue(q, modules[md].k[i]);
-//				}
-//				p = p->next;
-//			}
-//		}
-//		for (int i = 0; i < MAXNUM; i++) {
-//			LINKLIST *next, *p = hash[i];
-//			while (p != NULL) {
-//				next = p->next;
-//				free(p);
-//				p = next;
-//			}
-//		}
-//		for (i = 0; i < modulesNum; i++) {
-//			printf("%d ", modules[i].count % 142857);
-//		}
-//		printf("\n");
-//		free(modules);
-//	}
-//
-//	free(q);
-//
-//	return 0;
-//}
+//#define MICROSOFT
+#ifdef MICROSOFT
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <math.h>
 
-#define LONGLONG long long
-#define MOD 12357
+#define MAXNUM 10005
 
-int k;
-LONGLONG **c, *cdata;
-LONGLONG *codata;
+#define DEBUG
 
-void mulm(LONGLONG **a, LONGLONG **b, LONGLONG **ret, int powk)
+#ifndef INT_MAX
+#define INT_MAX 2000000000
+#endif
+#ifndef INT_MIN
+#define INT_MIN -2000000000
+#endif
+
+#ifdef DEBUG
+#define myscanf(file, fmt, ...) fscanf(file, fmt, ##__VA_ARGS__)
+#else
+#define myscanf(file, fmt, ...) scanf(fmt, ##__VA_ARGS__)
+#endif // DEBUG
+
+typedef struct _CORD {
+	int x;
+	int y;
+	int num;
+}CORD;
+
+typedef struct _EDGE {
+	int dest;
+	int weight;
+	struct _EDGE *link;
+}EDGE;
+
+typedef struct _VERTEX{
+	int data;
+	int color;
+	EDGE *next;
+}VERTEX;
+
+typedef struct _GRAPH {
+	VERTEX *adj;
+	int vetNum;
+	int edgeNum;
+}GRAPH;
+typedef struct _LINKLIST {
+	int data;
+	struct _LINKLIST *next;
+}LINKLIST;
+
+typedef struct _QUEUE {
+	LINKLIST *front, *rear;
+}QUEUE;
+static QUEUE *initQueue()
 {
-	int i, j, k;
-	memset(cdata, 0, powk * powk * sizeof(LONGLONG));
-	for (i = 0; i < powk; i++) {
-		for (j = 0; j < powk; j++) {
-			for (k = 0; k < powk; k++) {
-				c[i][j] += a[i][k] * a[k][j];
-			}
-			c[i][j] %= MOD;
-		}
+	QUEUE *q = malloc(sizeof(QUEUE));
+	memset(q, 0, sizeof(QUEUE));
+	return q;
+}
+static void delQueue(QUEUE *q)
+{
+	LINKLIST *next, *front = q->front;
+	while (front != NULL) {
+		next = front->next;
+		free(front);
+		front = next;
 	}
-	memcpy(ret[0], cdata, powk * powk * sizeof(LONGLONG));
+	free(q);
+}
+static int isQueueEmpty(QUEUE *q)
+{
+	return q->front == NULL ? 1 : 0;
+}
+static void enqueue(QUEUE *q, int data)
+{
+	if (q->front != NULL) {
+		LINKLIST *newnode = malloc(sizeof(LINKLIST));
+		newnode->data = data;
+		newnode->next = NULL;
+		q->rear->next = newnode;
+		q->rear = newnode;
+	}
+	else {
+		q->front = q->rear = malloc(sizeof(LINKLIST));
+		q->front->data = data;
+		q->front->next = NULL;
+	}
+}
+static int dequeue(QUEUE *q)
+{
+	LINKLIST *node = q->front;
+	int data = node->data;
+	q->front = q->front->next;
+	free(node);
+	return data;
 }
 
-void mula(LONGLONG *a, LONGLONG **m, LONGLONG *ret, int powk)
+int cmpx(void const *a, void const *b)
 {
-	int i, j;
-	memset(codata, 0, powk * sizeof(LONGLONG));
-	for (i = 0; i < powk; i++) {
-		for (j = 0; j < powk; j++) {
-			codata[i] += a[j] * m[j][i];
-		}
-		codata[i] %= MOD;
-	}
-	memcpy(ret, codata, powk * sizeof(LONGLONG));
+	return ((CORD *)a)->x - ((CORD *)b)->x;
+}
+int cmpy(void const *a, void const *b)
+{
+	return ((CORD *)a)->y - ((CORD *)b)->y;
 }
 
-
-static void dfs(int x, int y, int col, LONGLONG **d)
+int distance(int i, int j, CORD *cord)
 {
-	if (col == k) {
-		d[y][x] = 1;
-		return;
-	}
-	dfs(x << 1, (y << 1) + 1, col + 1, d);
-	dfs((x << 1) + 1, y << 1, col + 1, d);
-	if (col + 2 <= k) {
-		dfs((x << 2) + 3, (y << 2) + 3, col + 2, d);
+	int ret, x, y;
+	x = abs(cord[i].x - cord[j].x);
+	y = abs(cord[i].y - cord[j].y);
+	return x < y ? x : y;
+}
+
+static void createGraph(int n, VERTEX *adj,  CORD *cord)
+{
+	int i;
+	for (i = 0; i < n - 1; i++) {
+		int a = cord[i].num, b = cord[i + 1].num;
+		EDGE *p = malloc(sizeof(EDGE));
+		p->dest = b;
+		p->link = adj[a].next;
+		p->weight = distance(i, i + 1, cord);
+		adj[a].next = p;
+
+		p = malloc(sizeof(EDGE));
+		p->dest = a;
+		p->link = adj[b].next;
+		p->weight = distance(i, i + 1, cord);
+		adj[b].next = p;
 	}
 }
-int main()
+
+int main(void)
 {
+	int i, n;
+	int isInqueue[MAXNUM];
+	CORD cord[MAXNUM];
+	int dist[MAXNUM];
+	QUEUE *q = initQueue();
+#ifdef DEBUG
 	FILE *file = fopen("input.txt", "r");
-	int n, i, powk;
-	LONGLONG **m, *mdata;
-	LONGLONG *a;
-	fscanf(file, "%d%d", &k, &n);
-	powk = 1 << k;
-
-	a = malloc(powk * sizeof(LONGLONG));
-	codata = malloc(powk * sizeof(LONGLONG));
-
-	m = malloc(powk * sizeof(LONGLONG *));
-	c = malloc(powk * sizeof(LONGLONG *));
-
-	mdata = malloc(powk * powk * sizeof(LONGLONG));
-	cdata = malloc(powk * powk * sizeof(LONGLONG));
-
-	for (i = 0; i < powk; i++) {
-		m[i] = mdata + i * powk;
-		c[i] = cdata + i * powk;
+#endif
+	memset(isInqueue, 0, MAXNUM * sizeof(int));
+	//read test case
+	myscanf(file, "%d", &n);
+	for (i = 0; i < n; i++) {
+		myscanf(file, "%d%d", &cord[i].x, &cord[i].y);
+		dist[i] = INT_MAX;
+		cord[i].num = i;
 	}
+	dist[0] = 0;
 
-	memset(mdata, 0, powk * powk * sizeof(LONGLONG));
-	memset(cdata, 0, powk * powk * sizeof(LONGLONG));
+	//create the edge
+	VERTEX *adj = malloc(n * sizeof(VERTEX));
+	for (i = 0; i < n; i++) {
+		adj[i].data = i;
+		adj[i].next = NULL;
+	}
+	qsort(cord, n, sizeof(CORD), cmpx);
+	createGraph(n, adj, cord);
+	qsort(cord, n, sizeof(CORD), cmpy);
+	createGraph(n, adj, cord);
 
-	memset(a, 0, powk * sizeof(LONGLONG));
-	memset(codata, 0, powk * sizeof(LONGLONG));
-
-	a[powk - 1] = 1;
-	dfs(0, 0, 0, m);
-
-	for (; n > 0; n >>= 1, mulm(m, m, m, powk)) {
-		if (n & 1) {
-			mula(a, m, a, powk);
+	//relax edge
+	enqueue(q, 0);
+	isInqueue[0] = 1;
+	while (!isQueueEmpty(q)) {
+		int u = dequeue(q);
+		isInqueue[u] = 0;
+		EDGE *p = adj[u].next;
+		while (p != NULL) {
+			int dis = dist[u] + p->weight;
+			if (dist[p->dest] > dis) {
+				dist[p->dest] = dis;
+				if (isInqueue[p->dest] == 0) {
+					enqueue(q, p->dest);
+					isInqueue[p->dest] = 1;
+				}
+			}
+			p = p->link;
 		}
 	}
-	printf("%d\n", a[powk - 1]);
+	
+	//free malloc memory
+	for (i = 0; i < n; i++) {
+		EDGE *next, *p = adj[i].next;
+		while (p != NULL) {
+			next = p->link;
+			free(p);
+			p = next;
+		}
+	}
+	free(adj);
+	delQueue(q);
 
-	free(m);
-	free(c);
+	printf("%d\n", dist[n - 1]);
 
-	free(mdata);
-	free(cdata);
-
-	free(a);
-	free(codata);
-
+#ifdef DEBUG
+	fclose(file);
+	system("pause");
+#endif
 	return 0;
 }
+#endif
