@@ -1,8 +1,1 @@
-6
-aaabc
-aaac
-abcc
-ac
-bcd
-cd
-aaaaaaaaaaabaaadaaac
+1
