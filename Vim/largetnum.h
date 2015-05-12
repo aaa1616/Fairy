@@ -29,6 +29,7 @@ char **fullJustify(char **words, int n, int L, int *outputSize);
 int **combine(int n, int k, int **columnSizes, int *returnSize);
 struct ListNode *partition(struct ListNode *head, int x);
 int isScramble(char* s1, char* s2);
+struct ListNode *reverseBetween(struct ListNode *head, int m, int n);
 
 
 #endif // !_LARGEST_NUM
