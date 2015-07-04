@@ -148,7 +148,6 @@
     <ClCompile Include="hihocoder.c" />
     <ClCompile Include="hiho_10.c" />
     <ClCompile Include="hiho_13.cpp" />
-    <ClCompile Include="hiho_21.cpp" />
     <ClCompile Include="hiho_28.c" />
     <ClCompile Include="hiho_16.cpp" />
     <ClCompile Include="hiho_21.cpp" />
