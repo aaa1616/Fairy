@@ -111,6 +111,9 @@
     <ClCompile Include="hiho_28.c">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
+    <ClCompile Include="hiho_53.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">

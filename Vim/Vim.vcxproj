@@ -154,6 +154,7 @@
     <ClCompile Include="hiho_42.c" />
     <ClCompile Include="hiho_43.c" />
     <ClCompile Include="hiho_47.c" />
+    <ClCompile Include="hiho_53.cpp" />
     <ClCompile Include="hioh_11.c" />
     <ClCompile Include="largeData.c" />
     <ClCompile Include="largestnum.c" />
