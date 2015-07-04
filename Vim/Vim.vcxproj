@@ -147,9 +147,13 @@
     <ClCompile Include="graph.c" />
     <ClCompile Include="hihocoder.c" />
     <ClCompile Include="hiho_10.c" />
+    <ClCompile Include="hiho_13.cpp" />
+    <ClCompile Include="hiho_21.cpp" />
+    <ClCompile Include="hiho_28.c" />
     <ClCompile Include="hiho_4.cpp" />
     <ClCompile Include="hiho_42.c" />
     <ClCompile Include="hiho_43.c" />
+    <ClCompile Include="hiho_47.c" />
     <ClCompile Include="hioh_11.c" />
     <ClCompile Include="largeData.c" />
     <ClCompile Include="largestnum.c" />

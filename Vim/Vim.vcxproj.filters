@@ -99,6 +99,18 @@
     <ClCompile Include="hihocoder.c">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
+    <ClCompile Include="hiho_13.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_47.c">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_21.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_28.c">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">
