@@ -75,10 +75,19 @@
     <ClCompile Include="ms_2.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="ms_3.c">
+    <ClCompile Include="hiho_4.cpp">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="ms_1.cpp">
+    <ClCompile Include="hioh_15.cpp">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_16.cpp">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_22.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_51.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
     <ClCompile Include="hiho_4.cpp">
@@ -113,6 +122,9 @@
     </ClCompile>
     <ClCompile Include="hiho_53.cpp">
       <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_52.cpp">
+      <Filter>Source Files\test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
