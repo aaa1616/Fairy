@@ -72,9 +72,6 @@
     <ClCompile Include="acmcoder.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="ms_2.c">
-      <Filter>Source Files\test</Filter>
-    </ClCompile>
     <ClCompile Include="hiho_4.cpp">
       <Filter>Source Files\test</Filter>
     </ClCompile>
@@ -179,5 +176,10 @@
     <ClInclude Include="largeData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
