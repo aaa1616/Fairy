@@ -78,9 +78,6 @@
     <ClCompile Include="hiho_10.c">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
-    <ClCompile Include="hiho_42.c">
-      <Filter>Source Files\hiho</Filter>
-    </ClCompile>
     <ClCompile Include="hiho_43.c">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
@@ -121,6 +118,18 @@
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
     <ClCompile Include="hioh_15.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_55.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_56.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_57.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_58.cpp">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
   </ItemGroup>
