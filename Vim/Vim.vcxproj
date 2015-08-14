@@ -155,8 +155,8 @@
     <ClCompile Include="hiho_4.cpp" />
     <ClCompile Include="hiho_51.c" />
     <ClCompile Include="hiho_52.cpp" />
+    <ClCompile Include="hiho_54.cpp" />
     <ClCompile Include="hioh_15.cpp" />
-    <ClCompile Include="hiho_42.c" />
     <ClCompile Include="hiho_43.c" />
     <ClCompile Include="hiho_47.c" />
     <ClCompile Include="hiho_53.cpp" />
