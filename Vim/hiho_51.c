@@ -17,7 +17,7 @@
 //int gIndex = 0;
 //char binary[(1 << N) + 1];
 //
-//void build(int u, int v)
+//static void build(int u, int v)
 //{
 //	gIndex++;
 //	edges[gIndex].to = v;
