@@ -64,8 +64,8 @@ int parseAidl(FILE *file, char *filename, int id, char ***aidl_table)
 							break;
 						}
 						else {
-							file->_cnt++;
-							file->_ptr--;
+							//file->_cnt++;
+							//file->_ptr--;
 						}
 					}
 				}
@@ -74,8 +74,8 @@ int parseAidl(FILE *file, char *filename, int id, char ***aidl_table)
 				while ((c = getc(file)) != '\n');
 			}
 			else {
-				file->_cnt++;
-				file->_ptr--;
+				//file->_cnt++;
+				//file->_ptr--;
 			}
 			continue;
 		}
