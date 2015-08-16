@@ -25,6 +25,9 @@
     <Filter Include="Source Files\hiho">
       <UniqueIdentifier>{1d0f0c1e-acc9-47a0-8fc2-6cc04d5e58c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\codejam">
+      <UniqueIdentifier>{c0c35ebd-92e7-4b9b-b100-ba4156c9fa68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.c">
@@ -148,8 +151,20 @@
     <ClCompile Include="hioh_15.cpp">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
-    <ClCompile Include="hiho_54.cpp">
+    <ClCompile Include="hiho_59.cpp">
       <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="Old Magician.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="Bad Horse.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="Moist.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="Captain Hammer.cpp">
+      <Filter>Source Files\codejam</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

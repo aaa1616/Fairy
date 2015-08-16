@@ -1,9 +1,2 @@
-4
-3
-abc
-4
-aaab
-6
-aaabcd
-3
-abb
+1
+231 5445

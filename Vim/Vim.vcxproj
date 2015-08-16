@@ -141,7 +141,9 @@
   <ItemGroup>
     <ClCompile Include="acmcoder.c" />
     <ClCompile Include="aidl.c" />
+    <ClCompile Include="Bad Horse.cpp" />
     <ClCompile Include="buystock.c" />
+    <ClCompile Include="Captain Hammer.cpp" />
     <ClCompile Include="ftarray.c" />
     <ClCompile Include="ftmem.c" />
     <ClCompile Include="graph.c" />
@@ -164,10 +166,13 @@
     <ClCompile Include="hiho_47.c" />
     <ClCompile Include="hiho_53.cpp" />
     <ClCompile Include="hioh_11.c" />
+    <ClCompile Include="hiho_59.cpp" />
     <ClCompile Include="largeData.c" />
     <ClCompile Include="largestnum.c" />
     <ClCompile Include="microsoft.c" />
+    <ClCompile Include="Moist.cpp" />
     <ClCompile Include="nqueen.c" />
+    <ClCompile Include="Old Magician.cpp" />
     <ClCompile Include="repeat_dna.c" />
     <ClCompile Include="rws.c" />
     <ClCompile Include="Source.c" />
