@@ -75,9 +75,6 @@
     <ClCompile Include="acmcoder.c">
       <Filter>Source Files\test</Filter>
     </ClCompile>
-    <ClCompile Include="hiho_4.cpp">
-      <Filter>Source Files\hiho</Filter>
-    </ClCompile>
     <ClCompile Include="hiho_10.c">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
@@ -99,13 +96,7 @@
     <ClCompile Include="hiho_21.cpp">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
-    <ClCompile Include="hiho_28.c">
-      <Filter>Source Files\hiho</Filter>
-    </ClCompile>
     <ClCompile Include="hiho_53.cpp">
-      <Filter>Source Files\hiho</Filter>
-    </ClCompile>
-    <ClCompile Include="hiho_4.cpp">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
     <ClCompile Include="hiho_16.cpp">
@@ -118,9 +109,6 @@
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
     <ClCompile Include="hiho_51.c">
-      <Filter>Source Files\hiho</Filter>
-    </ClCompile>
-    <ClCompile Include="hiho_4.cpp">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
     <ClCompile Include="hiho_16.cpp">
@@ -130,9 +118,6 @@
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
     <ClCompile Include="hiho_52.cpp">
-      <Filter>Source Files\hiho</Filter>
-    </ClCompile>
-    <ClCompile Include="hioh_15.cpp">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
     <ClCompile Include="hiho_55.cpp">
@@ -148,9 +133,6 @@
       <Filter>Source Files\hiho</Filter>
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
-    <ClCompile Include="hioh_15.cpp">
-      <Filter>Source Files\hiho</Filter>
-    </ClCompile>
     <ClCompile Include="hiho_59.cpp">
       <Filter>Source Files\hiho</Filter>
     </ClCompile>
@@ -164,6 +146,132 @@
       <Filter>Source Files\codejam</Filter>
     </ClCompile>
     <ClCompile Include="Captain Hammer.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_30.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_31.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_36.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_37.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_38.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="ali1.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="ali2.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="Googol String.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="gCube.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="gCampus.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="gSnake.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="other.c">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_60.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_33.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_34.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_61.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_40.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_32.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="leetcode.cpp">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="tencent.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="perm.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_62.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="csyntax.c">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="other.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="gSnake1.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_4%28trie%29.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_28%28heap%29.c">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_48(拓扑).cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_15%28并查集%29.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_6(01背包).cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_7(完全背包).cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_24%28floyd%29.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_23%28spfa%29.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_39%28merge, quick%29.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="longest palindromic.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="meituan.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="baidu2.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="baidu3.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="Exam2.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="Exam1.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="Exam3.cpp">
       <Filter>Source Files\codejam</Filter>
     </ClCompile>
   </ItemGroup>

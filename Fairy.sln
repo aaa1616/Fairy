@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vim", "Vim\Vim.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPlusPlus", "CPlusPlus\CPlusPlus.vcxproj", "{46186029-A79A-4853-8C87-667A51D81FD3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C", "C\C.vcxproj", "{F6392B6F-B2A0-4CEA-8970-27E821064E18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -41,6 +43,16 @@ Global
 		{46186029-A79A-4853-8C87-667A51D81FD3}.Release|Win32.Build.0 = Release|Win32
 		{46186029-A79A-4853-8C87-667A51D81FD3}.Release|x64.ActiveCfg = Release|x64
 		{46186029-A79A-4853-8C87-667A51D81FD3}.Release|x64.Build.0 = Release|x64
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Debug|Win32.Build.0 = Debug|Win32
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Debug|x64.ActiveCfg = Debug|Win32
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Release|Win32.ActiveCfg = Release|Win32
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Release|Win32.Build.0 = Release|Win32
+		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

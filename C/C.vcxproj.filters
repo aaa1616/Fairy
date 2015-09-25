@@ -15,36 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source1.cpp">
+    <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source2.cpp">
+    <ClCompile Include="source1.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="book.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CPrimer.cpp">
+    <ClCompile Include="source2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header1.h">
+    <ClInclude Include="source1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CPrimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="book.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="input.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
   </ItemGroup>
 </Project>

@@ -6,6 +6,7 @@
 //#define par(x) (x >> 1)
 //
 //int nodes[N];
+//int a = 2;
 //
 //void siftDown(int cur, int e)
 //{

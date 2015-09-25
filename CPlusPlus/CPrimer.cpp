@@ -1,25 +1,42 @@
-#include <cstdio>
-#include <vector>
-#include <bitset>
-#include <iostream>
-#include <math.h>
-
 #include "CPrimer.h"
-#include "header1.h"
-#include "header2.h"
+#include "book.h"
+#include <time.h>
+#include <Windows.h>
+#include <stack>
 
 using namespace std;
+
+int gExt = 0;
+extern void func_test();
+
+typedef void(FUNC)(int, int);
+
+void func()
+{
+	printf("Test Typedef FUNC\n");
+}
+
+void funtest(FUNC fun)
+{
+	fun;
+}
+
+int getval()
+{
+	return GetCurrentTime();
+}
+
+template <class type>
+class templateFoo{
+public:
+	type val();
+	void vla(type v);
+private:
+	type _val;
+};
 
 
 int main()
 {
-	int n = 0;
-	while (n < 10) {
-		double i = asin(0.9999999999999);
-		n++;
-		cout << i << endl;
-		n++;
-	}
 	return 0;
-
 }

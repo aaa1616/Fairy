@@ -10,7 +10,7 @@ typedef struct _LISTHEAD {
 	struct _LISTHEAD *next, *prev;
 }LISTHEAD;
 typedef struct _HLISTHEAD {
-	struct _HLISTHEAD *first;
+	struct _HLISTNODE *first;
 }HLISTHEAD;
 typedef struct _HLISTNODE {
 	struct _HLISTNODE *next, **pprev;
