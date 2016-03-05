@@ -30,81 +30,26 @@ public:
 	Foo f;
 };
 
-class X {
-public:
-	int x;
-	X() { printf("X\n"); }
-	//virtual void funcx() {}
-};
-
-class Y {
-public:
-	int y;
-};
-
-class A : virtual public X{
+class A {
 public:
 	A() { printf("A\n"); }
-	int a;
-	virtual void funa(){}
+	~A() { printf("des\n"); }
+private:
+	int a = 1;
 };
 
-class B : virtual public X{
+class B {
 public:
 	B() { printf("B\n"); }
-	int b;
-	virtual void funb(){}
+	B(const B& b) { printf("copy B\n"); }
 };
 
-class D {
+class C {
 public:
-	int d;
-	virtual void fund() {}
-};
-
-class C : public A, public B {
-public:
-	C() { printf("C\n"); }
-	int c;
-	void func1() { c++; }
-	virtual void func(){}
-	virtual void funb() { c++; }
-};
-
-class A1{
-public:
-	A1() { printf("A1 construct\n"); }
-	//virtual void funa() { printf("A1 construct\n"); };
-	int a1;
-};
-
-class B1 : virtual public A1{
-public:
-	B1() { printf("B1 construct\n"); }
-	int b1;
-	virtual void funb() {}
-private :
-	void test1() {}
-};
-
-class D1 : public B1 {
-
-};
-
-class C1 :virtual public B1, public A1 {
-public:
-	int c1;
-	virtual void func() {}
-};
-
-class Test1 {
-public:
-	int x;
-	~Test1() { printf("Test\n"); }
-};
-
-class Test2 : public Test1 {
-	virtual void func() {}
+	C(B t) : b(t) {};
+	int v;
+	A a;
+	B b;
 };
 
 #endif

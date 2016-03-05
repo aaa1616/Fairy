@@ -36,10 +36,10 @@
 //	}
 //	for (j = 1; j <= m; j++) {
 //		flag = false;
-//		i = 1;
+//		last = i = 1;
 //		one = false;
 //		while (1) {
-//			if (a[i][j] == -1) {
+//			if (!one && a[i][j] == -1) {
 //				d[i] = -1;
 //			}
 //			else {
@@ -58,7 +58,7 @@
 //					if (i == last) {
 //						break;
 //					}
-//					if (d[i - 1] != -1) {
+//					if (a[i][j] != -1 && d[i - 1] != -1) {
 //						d[i] = max(d[i], d[i - 1] + a[i][j]);
 //					}
 //				}
@@ -74,10 +74,10 @@
 //			}
 //		}
 //		//printf("\n");
-//		i = n;
+//		last = i = n;
 //		one = false;
 //		while (1) {
-//			if (a[i][j] == -1) {
+//			if (!one && a[i][j] == -1) {
 //				u[i] = -1;
 //			}
 //			else {
@@ -96,7 +96,9 @@
 //					if (i == last) {
 //						break;
 //					}
-//					u[i] = max(u[i], u[i + 1] + a[i][j]);
+//					if (a[i][j] != -1 && u[i + 1] != -1) {
+//						u[i] = max(u[i], u[i + 1] + a[i][j]);
+//					}
 //				}
 //			}
 //			//printf("%d ", u[i]);
@@ -111,15 +113,15 @@
 //			}
 //		}
 //		//printf("\n");
-//		printf("Col%d : ", j);
+//		//printf("Col%d : ", j);
 //		for (i = 1; i <= n; i++) {
 //			c[i] = max(d[i], u[i]);
-//			printf("%d ", c[i]);
+//			//printf("%d ", c[i]);
 //			if (c[i] != -1) {
 //				flag = true;
 //			}
 //		}
-//		printf("\n");
+//		//printf("\n");
 //		if (!flag) {
 //			printf("-1\n");
 //			return 0;

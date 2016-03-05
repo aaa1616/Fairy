@@ -274,6 +274,36 @@
     <ClCompile Include="Exam3.cpp">
       <Filter>Source Files\codejam</Filter>
     </ClCompile>
+    <ClCompile Include="hiho_63.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_64.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="hiho_65.cpp">
+      <Filter>Source Files\hiho</Filter>
+    </ClCompile>
+    <ClCompile Include="tplink.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="qihu.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="ms1.c">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="ms2.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="ms3.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="tdtest.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
+    <ClCompile Include="nsetease1.cpp">
+      <Filter>Source Files\codejam</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ftaray.h">

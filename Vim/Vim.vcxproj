@@ -195,6 +195,9 @@
     <ClCompile Include="hiho_43.c" />
     <ClCompile Include="hiho_47.c" />
     <ClCompile Include="hiho_53.cpp" />
+    <ClCompile Include="hiho_63.cpp" />
+    <ClCompile Include="hiho_64.cpp" />
+    <ClCompile Include="hiho_65.cpp" />
     <ClCompile Include="hiho_7(完全背包).cpp" />
     <ClCompile Include="hioh_11.c" />
     <ClCompile Include="hiho_59.cpp" />
@@ -205,18 +208,25 @@
     <ClCompile Include="meituan.cpp" />
     <ClCompile Include="microsoft.c" />
     <ClCompile Include="Moist.cpp" />
+    <ClCompile Include="ms1.c" />
+    <ClCompile Include="ms2.cpp" />
+    <ClCompile Include="ms3.cpp" />
     <ClCompile Include="nqueen.c" />
+    <ClCompile Include="nsetease1.cpp" />
     <ClCompile Include="Old Magician.cpp" />
     <ClCompile Include="other.c" />
     <ClCompile Include="other.cpp" />
     <ClCompile Include="perm.cpp" />
+    <ClCompile Include="qihu.cpp" />
     <ClCompile Include="repeat_dna.c" />
     <ClCompile Include="rws.c" />
     <ClCompile Include="Source.c" />
+    <ClCompile Include="tdtest.cpp" />
     <ClCompile Include="tencent.cpp" />
     <ClCompile Include="test.c" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="tiretree.c" />
+    <ClCompile Include="tplink.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aidl.h" />

@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPlusPlus", "CPlusPlus\CPlu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C", "C\C.vcxproj", "{F6392B6F-B2A0-4CEA-8970-27E821064E18}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphviz", "Graphviz\Graphviz.vcxproj", "{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -53,6 +55,16 @@ Global
 		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Release|Win32.ActiveCfg = Release|Win32
 		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Release|Win32.Build.0 = Release|Win32
 		{F6392B6F-B2A0-4CEA-8970-27E821064E18}.Release|x64.ActiveCfg = Release|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Debug|Win32.Build.0 = Debug|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Debug|x64.ActiveCfg = Debug|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Release|Win32.ActiveCfg = Release|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Release|Win32.Build.0 = Release|Win32
+		{FCCFBA00-40F2-4607-80CB-E70BEBC366A5}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

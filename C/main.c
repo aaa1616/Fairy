@@ -4,7 +4,7 @@ int *a;
 
 int main()
 {
+	test1();
 	printf("%d\n", a);
-	func1();
 	return 0;
 }
